@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Conversation (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *obj_id;
+@property (nullable, nonatomic, retain) NSString *objId;
 @property (nullable, nonatomic, retain) NSString *url;
-@property (nullable, nonatomic, retain) NSDate *created_at;
+@property (nullable, nonatomic, retain) NSDate *createdAt;
 
 @end
 

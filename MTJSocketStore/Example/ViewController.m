@@ -54,7 +54,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell withObject:(id)object {
     Conversation *conv = object;
-    cell.textLabel.text = conv.obj_id;
+    cell.textLabel.text = conv.objId;
 }
 
 - (void)deleteObject:(id)object {

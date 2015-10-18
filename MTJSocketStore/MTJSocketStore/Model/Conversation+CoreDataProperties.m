@@ -13,8 +13,8 @@
 
 @implementation Conversation (CoreDataProperties)
 
-@dynamic obj_id;
+@dynamic objId;
 @dynamic url;
-@dynamic created_at;
+@dynamic createdAt;
 
 @end

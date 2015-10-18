@@ -14,19 +14,19 @@
 
 - (void)loadFromDictionary:(NSDictionary *)dictionary
 {
-    self.obj_id = dictionary[[Conversation identifierString]];
+    self.objId = dictionary[[Conversation identifierString]];
     self.url = dictionary[@"url"];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
     NSDate *date = [dateFormat dateFromString:dictionary[@"created_at"]];
-    self.created_at = date;
+    self.createdAt = date;
 }
 
 + (Conversation *)findOrCreateConversation:(NSString *)objID inContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"obj_id = %@", objID];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"objId = %@", objID];
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
     if (error) {
@@ -36,7 +36,7 @@
         return result.lastObject;
     } else {
         Conversation *conv = [self insertNewObjectIntoContext:context];
-        conv.obj_id = objID;
+        conv.objId = objID;
         return conv;
     }
 }
@@ -67,7 +67,7 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@" id: %@\n url: %@\n created_at:%@\n",
-            self.obj_id, self.url, self.created_at];
+            self.objId, self.url, self.createdAt];
 }
 
 
