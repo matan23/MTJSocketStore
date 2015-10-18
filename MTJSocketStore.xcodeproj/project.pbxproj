@@ -50,17 +50,17 @@
 		83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerClientTests.m; sourceTree = "<group>"; };
 		83EF00121BD2F31C00E97275 /* MTJTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJTestHelper.h; sourceTree = "<group>"; };
 		83EF00131BD2F31C00E97275 /* MTJTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJTestHelper.m; sourceTree = "<group>"; };
-		83EF00151BD2F58B00E97275 /* layer_secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = layer_secrets.plist; path = MTJSocketStore/layer_secrets.plist; sourceTree = "<group>"; };
+		83EF00151BD2F58B00E97275 /* layer_secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = layer_secrets.plist; sourceTree = "<group>"; };
 		83EFFFD21BD2DBE900E97275 /* MTJSocketStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTJSocketStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		83EFFFD61BD2DBE900E97275 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		83EFFFD81BD2DBE900E97275 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MTJSocketStore/AppDelegate.h; sourceTree = "<group>"; };
-		83EFFFD91BD2DBE900E97275 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MTJSocketStore/AppDelegate.m; sourceTree = "<group>"; };
-		83EFFFDB1BD2DBE900E97275 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = MTJSocketStore/ViewController.h; sourceTree = "<group>"; };
-		83EFFFDC1BD2DBE900E97275 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = MTJSocketStore/ViewController.m; sourceTree = "<group>"; };
+		83EFFFD61BD2DBE900E97275 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Example/main.m; sourceTree = "<group>"; };
+		83EFFFD81BD2DBE900E97275 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MTJSocketStore/Example/AppDelegate.h; sourceTree = "<group>"; };
+		83EFFFD91BD2DBE900E97275 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MTJSocketStore/Example/AppDelegate.m; sourceTree = "<group>"; };
+		83EFFFDB1BD2DBE900E97275 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = MTJSocketStore/Example/ViewController.h; sourceTree = "<group>"; };
+		83EFFFDC1BD2DBE900E97275 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = MTJSocketStore/Example/ViewController.m; sourceTree = "<group>"; };
 		83EFFFDF1BD2DBE900E97275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		83EFFFE11BD2DBE900E97275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83EFFFE11BD2DBE900E97275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Example/Assets.xcassets; sourceTree = "<group>"; };
 		83EFFFE41BD2DBE900E97275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83EFFFE61BD2DBE900E97275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83EFFFE61BD2DBE900E97275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Example/Info.plist; sourceTree = "<group>"; };
 		83EFFFEB1BD2DBE900E97275 /* MTJSocketStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTJSocketStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EFFFEF1BD2DBEA00E97275 /* MTJSocketStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTJSocketStoreTests.m; sourceTree = "<group>"; };
 		83EFFFF11BD2DBEA00E97275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 		83EF00091BD2E33800E97275 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				83EFFFD51BD2DBE900E97275 /* Supporting Files */,
 				83EFFFD81BD2DBE900E97275 /* AppDelegate.h */,
 				83EFFFD91BD2DBE900E97275 /* AppDelegate.m */,
 				83EFFFDB1BD2DBE900E97275 /* ViewController.h */,
@@ -116,9 +117,7 @@
 		83EFFFC91BD2DBE900E97275 = {
 			isa = PBXGroup;
 			children = (
-				83EF00151BD2F58B00E97275 /* layer_secrets.plist */,
 				83EF00091BD2E33800E97275 /* App */,
-				83EFFFD51BD2DBE900E97275 /* Supporting Files */,
 				83EFFFD41BD2DBE900E97275 /* MTJSocketStore */,
 				83EFFFEE1BD2DBE900E97275 /* MTJSocketStoreTests */,
 				83EFFFD31BD2DBE900E97275 /* Products */,
@@ -139,12 +138,14 @@
 		83EFFFD41BD2DBE900E97275 /* MTJSocketStore */ = {
 			isa = PBXGroup;
 			children = (
+				83EF00151BD2F58B00E97275 /* layer_secrets.plist */,
 				83EF00061BD2DFF300E97275 /* Client */,
 				83EFFFFA1BD2DF0700E97275 /* WebSocket */,
 				83EF000A1BD2E3F100E97275 /* MTJSocketStore.h */,
 				83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */,
 			);
-			path = MTJSocketStore;
+			name = MTJSocketStore;
+			path = MTJSocketStore/MTJSocketStore;
 			sourceTree = "<group>";
 		};
 		83EFFFD51BD2DBE900E97275 /* Supporting Files */ = {
@@ -178,7 +179,7 @@
 				83EFFFFB1BD2DF3800E97275 /* SRWebSocket.h */,
 				83EFFFFC1BD2DF3800E97275 /* SRWebSocket.m */,
 			);
-			name = WebSocket;
+			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		8BD07B49304652264F397588 /* Pods */ = {
@@ -390,6 +391,7 @@
 				83EFFFDF1BD2DBE900E97275 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		83EFFFE31BD2DBE900E97275 /* LaunchScreen.storyboard */ = {
@@ -398,6 +400,7 @@
 				83EFFFE41BD2DBE900E97275 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -490,7 +493,7 @@
 			baseConfigurationReference = 51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MTJSocketStore/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MTJSocketStore/Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStore;
@@ -503,7 +506,7 @@
 			baseConfigurationReference = 2D17C0323A68C82043A4066F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MTJSocketStore/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MTJSocketStore/Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStore;
