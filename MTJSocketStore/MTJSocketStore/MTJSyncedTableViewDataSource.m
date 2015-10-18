@@ -1,5 +1,5 @@
 //
-//  FetchedResultControllerDataSource.m
+//  MTJSyncedTableViewDataSource.m
 //  MTJSocketStore
 //
 //  Created by sintaiyuan on 10/18/15.
@@ -27,18 +27,24 @@
     return self;
 }
 
-- (void)setTableView:(UITableView *)tableView withCellIdentifier:(NSString *)identifier {
+- (void)setDelegate:(id<MTJSyncedTableViewDataSourceDelegate>)delegate tableView:(UITableView *)tableView withCellIdentifier:(NSString *)identifier {
+    _delegate = delegate;
     _tableView = tableView;
     _tableView.dataSource = self;
     _reuseIdentifier = identifier;
 }
 
 - (NSError *)sync {
-    assert(_fetchedResultsController);
-    assert(_tableView);
+    if (!_fetchedResultsController ||
+        !_tableView ||
+        !_delegate) {
+        @throw @"Did you call: setDelegate:tableView:withCellIdentifier: ?";
+    }
 
     NSError *error = nil;
     [_fetchedResultsController performFetch:&error];
+    assert(!error);
+    if (error) NSLog(@"Sync error, performFetch failed: %@", error);
     return error;
 }
 

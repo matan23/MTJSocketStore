@@ -1,5 +1,5 @@
 //
-//  FetchedResultControllerDataSource.h
+//  MTJSyncedTableViewDataSource.h
 //  MTJSocketStore
 //
 //  Created by sintaiyuan on 10/18/15.
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@protocol FetchedResultsControllerDataSourceDelegate
+@protocol MTJSyncedTableViewDataSourceDelegate
 
 - (void)configureCell:(UITableView *)cell withObject:(id)object;
 - (void)deleteObject:(id)object;
@@ -21,11 +21,11 @@
 
 @property (nonatomic, readonly) UITableView *tableView;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, weak) id<FetchedResultsControllerDataSourceDelegate> delegate;
+@property (nonatomic, weak, readonly) id<MTJSyncedTableViewDataSourceDelegate> delegate;
 
 
 - (instancetype)initWithFRC:(NSFetchedResultsController *)frc;
-- (void)setTableView:(UITableView *)tableView withCellIdentifier:(NSString *)identifier;
+- (void)setDelegate:(id<MTJSyncedTableViewDataSourceDelegate>)delegate tableView:(UITableView *)tableView withCellIdentifier:(NSString *)identifier;
 - (NSError *)sync;
 
 @end

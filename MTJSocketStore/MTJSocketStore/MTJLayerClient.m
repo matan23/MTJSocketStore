@@ -140,6 +140,7 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     
+    assert(_sessionToken);
     NSString *authorization = [NSString stringWithFormat:@"Layer session-token='%@'", _sessionToken];
     config.HTTPAdditionalHeaders = @{
                                      @"Accept":@"application/vnd.layer+json; version=1.0",
