@@ -82,14 +82,4 @@
         }
     }];
 }
-
-- (void)testDate {
-//    2015-10-12T17:58:34.026Z
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSDate *date = [dateFormat dateFromString:@"2015-10-12T17:58:34.026Z"];
-    XCTAssertNotNil(date);
-}
-
-
 @end
