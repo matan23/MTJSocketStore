@@ -6,15 +6,15 @@
 //  Copyright © 2015 mataejoon. All rights reserved.
 //
 
-#import "MTJTestHelper.h"
+#import "MTJLayerKeysHelper.h"
 
-@interface MTJTestHelper() {
+@interface MTJLayerKeysHelper() {
     NSDictionary *_plistDic;
 }
 
 @end
 
-@implementation MTJTestHelper
+@implementation MTJLayerKeysHelper
 
 - (instancetype)init {
     self = [super init];
@@ -24,6 +24,18 @@
     }
     return self;
 }
+
++ (instancetype)sharedInstance {
+    static MTJLayerKeysHelper *_sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[MTJLayerKeysHelper alloc] init];
+    });
+    
+    return _sharedInstance;
+}
+
 
 - (NSString *)appID {
     NSString *layerAppID = _plistDic[@"layerAppID"];

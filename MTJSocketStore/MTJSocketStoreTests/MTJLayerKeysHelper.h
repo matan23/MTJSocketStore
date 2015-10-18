@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MTJTestHelper : NSObject
+@interface MTJLayerKeysHelper : NSObject
 
 - (NSString *)appID;
 - (NSString *)userID;
+
++ (instancetype)sharedInstance;
 
 @end

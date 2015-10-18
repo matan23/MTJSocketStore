@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "OCMock/OCMock.h"
 
-#import "MTJTestHelper.h"
+#import "MTJLayerKeysHelper.h"
 #import "MTJLayerClient.h"
 
 //used to check that public methods call private methods
@@ -21,7 +21,7 @@
 
 @interface MTJLayerClientTests : XCTestCase {
     MTJLayerClient *_client;
-    MTJTestHelper *_testHelper;
+    MTJLayerKeysHelper *_testHelper;
 }
 
 @end
@@ -31,7 +31,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    _testHelper = [MTJTestHelper new];
+    _testHelper = [MTJLayerKeysHelper new];
     _client = [MTJLayerClient clientWithAppID:[_testHelper appID]];
 }
 
