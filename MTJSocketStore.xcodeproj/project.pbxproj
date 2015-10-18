@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		651C8267045B9E1E2653E732 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0392AA876445AEF8E998A /* libPods.a */; };
+		839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8390901F1BD34BD50086924C /* MTJSocketStore.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 839090291BD34C760086924C /* Conversation+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		8390902D1BD34C760086924C /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390902B1BD34C760086924C /* Conversation.m */; settings = {ASSET_TAGS = (); }; };
+		839090301BD357960086924C /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390902F1BD357960086924C /* PersistentStack.m */; settings = {ASSET_TAGS = (); }; };
 		83EF00011BD2DFA600E97275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00001BD2DFA600E97275 /* Foundation.framework */; };
 		83EF00031BD2DFAB00E97275 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00021BD2DFAB00E97275 /* Security.framework */; };
 		83EF00051BD2DFC300E97275 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00041BD2DFC300E97275 /* libicucore.A.dylib */; };
@@ -40,6 +44,13 @@
 /* Begin PBXFileReference section */
 		2D17C0323A68C82043A4066F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		839090201BD34BD50086924C /* MTJSocketStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTJSocketStore.xcdatamodel; sourceTree = "<group>"; };
+		839090281BD34C760086924C /* Conversation+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Conversation+CoreDataProperties.h"; sourceTree = "<group>"; };
+		839090291BD34C760086924C /* Conversation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Conversation+CoreDataProperties.m"; sourceTree = "<group>"; };
+		8390902A1BD34C760086924C /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		8390902B1BD34C760086924C /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		8390902E1BD357960086924C /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
+		8390902F1BD357960086924C /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
 		83EF00001BD2DFA600E97275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83EF00021BD2DFAB00E97275 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		83EF00041BD2DFC300E97275 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
@@ -93,6 +104,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		839090011BD349D60086924C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8390902E1BD357960086924C /* PersistentStack.h */,
+				8390902F1BD357960086924C /* PersistentStack.m */,
+				839090281BD34C760086924C /* Conversation+CoreDataProperties.h */,
+				839090291BD34C760086924C /* Conversation+CoreDataProperties.m */,
+				8390902A1BD34C760086924C /* Conversation.h */,
+				8390902B1BD34C760086924C /* Conversation.m */,
+				8390901F1BD34BD50086924C /* MTJSocketStore.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		83EF00061BD2DFF300E97275 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,11 +163,12 @@
 		83EFFFD41BD2DBE900E97275 /* MTJSocketStore */ = {
 			isa = PBXGroup;
 			children = (
-				83EF00151BD2F58B00E97275 /* layer_secrets.plist */,
+				839090011BD349D60086924C /* Model */,
 				83EF00061BD2DFF300E97275 /* Client */,
 				83EFFFFA1BD2DF0700E97275 /* WebSocket */,
 				83EF000A1BD2E3F100E97275 /* MTJSocketStore.h */,
 				83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */,
+				83EF00151BD2F58B00E97275 /* layer_secrets.plist */,
 			);
 			name = MTJSocketStore;
 			path = MTJSocketStore/MTJSocketStore;
@@ -356,12 +382,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839090301BD357960086924C /* PersistentStack.m in Sources */,
 				83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */,
 				83EFFFFD1BD2DF3800E97275 /* SRWebSocket.m in Sources */,
 				83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */,
 				83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */,
 				83EFFFD71BD2DBE900E97275 /* main.m in Sources */,
 				83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */,
+				8390902D1BD34C760086924C /* Conversation.m in Sources */,
+				8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */,
+				839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +602,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8390901F1BD34BD50086924C /* MTJSocketStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				839090201BD34BD50086924C /* MTJSocketStore.xcdatamodel */,
+			);
+			currentVersion = 839090201BD34BD50086924C /* MTJSocketStore.xcdatamodel */;
+			name = MTJSocketStore.xcdatamodeld;
+			path = ../MTJSocketStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 83EFFFCA1BD2DBE900E97275 /* Project object */;
 }

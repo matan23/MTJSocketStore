@@ -43,11 +43,53 @@
     [super tearDown];
 }
 
-- (void)testConnectShouldCallClientConnect {
+- (void)testConnectShouldForwardToClient {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     [_store connectUser:[_testHelper userID] completion:nil];
     OCMVerify([_mockClient connectUser:[_testHelper userID] completion:[OCMArg any]]);
 }
+
+- (void)testGetAllConversationsShouldForwardToClient {
+    [_store getAllConversationsCompletion:[OCMArg any]];
+    
+    OCMVerify([_mockClient GETCollectionAtEndpoint:[OCMArg any] completion:[OCMArg any]]);
+}
+
+- (void)testGetAllConversationsShouldFeedCoreData {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"networkCallExpectation"];
+    
+    [_mockClient stopMocking];
+    [_store setClient:[MTJLayerClient clientWithAppID:[_testHelper appID]]];
+    [_store connectUser:[_testHelper userID] completion:^(BOOL success, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertTrue(success);
+        [_store getAllConversationsCompletion:^(NSArray *conversations, NSError *error) {
+            XCTAssertNil(error);
+            XCTAssertNotNil(conversations);
+            
+            [expectation fulfill];
+        }];
+    }];
+    
+    [self asyncWait];
+}
+
+- (void)asyncWait {
+    [self waitForExpectationsWithTimeout:100.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testDate {
+//    2015-10-12T17:58:34.026Z
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSDate *date = [dateFormat dateFromString:@"2015-10-12T17:58:34.026Z"];
+    XCTAssertNotNil(date);
+}
+
 
 @end

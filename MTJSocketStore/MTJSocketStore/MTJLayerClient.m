@@ -102,8 +102,11 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
     }];
 }
 
-- (void)GETCollectionAtEndpoint:(NSString *)endpoint completion:(void(^)(NSDictionary *responseObj, NSError *error))completion {
-    [self GETObjectAtEndpoint:endpoint withObjID:nil completion:completion];
+- (void)GETCollectionAtEndpoint:(NSString *)endpoint completion:(void(^)(NSArray *collection, NSError *error))completion {
+    [self GETObjectAtEndpoint:endpoint withObjID:nil completion:^(NSDictionary *responseObj, NSError *error) {
+       
+        completion((NSArray *)responseObj, error);
+    }];
 }
 
 

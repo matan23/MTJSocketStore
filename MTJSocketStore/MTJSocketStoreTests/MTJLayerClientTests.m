@@ -36,7 +36,7 @@
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+
     _client = nil;
     [super tearDown];
 }
@@ -53,8 +53,7 @@
 
 - (void)testConnectShouldSucceed {
     XCTestExpectation *expectation = [self expectationWithDescription:@"networkCallExpectation"];
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
     [_client connectUser:[_testHelper userID] completion:^(BOOL success, NSError *error) {
         XCTAssertNil(error);
         XCTAssertTrue(success);
@@ -66,13 +65,12 @@
 
 - (void)testRequestConversationShoudlSucceed {
     XCTestExpectation *expectation = [self expectationWithDescription:@"networkCallExpectation"];
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
     [_client connectUser:[_testHelper userID] completion:^(BOOL success, NSError *error) {
         XCTAssertNil(error);
         XCTAssertTrue(success);
         
-        [_client GETCollectionAtEndpoint:@"conversations" completion:^(NSDictionary *responseObj, NSError *error) {
+        [_client GETCollectionAtEndpoint:@"conversations" completion:^(NSArray *responseObj, NSError *error) {
             XCTAssertNotNil(responseObj);
             XCTAssertNil(error);
             [expectation fulfill];
