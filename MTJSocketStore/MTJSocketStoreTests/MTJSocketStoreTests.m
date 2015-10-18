@@ -9,12 +9,14 @@
 #import <XCTest/XCTest.h>
 #import "OCMock/OCMock.h"
 
-#import "MTJTestHelper.h"
+#import "MTJLayerKeysHelper.h"
 #import "MTJSocketStore.h"
 #import "MTJLayerClient.h"
 
+#import "Conversation.h"
+
 @interface MTJSocketStoreTests : XCTestCase {
-    MTJTestHelper *_testHelper;
+    MTJLayerKeysHelper *_testHelper;
     
     MTJSocketStore *_store;
     id _mockClient;
@@ -28,7 +30,7 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
-    _testHelper = [MTJTestHelper new];
+    _testHelper = [MTJLayerKeysHelper new];
     
     _store = [MTJSocketStore sharedStore];
   
@@ -50,13 +52,13 @@
     OCMVerify([_mockClient connectUser:[_testHelper userID] completion:[OCMArg any]]);
 }
 
-- (void)testGetAllConversationsShouldForwardToClient {
-    [_store getAllConversationsCompletion:[OCMArg any]];
+- (void)testSyncCollectionOfTypeShouldForwardToClient {
+    [_store syncCollectionOfType:[OCMArg any] completion:[OCMArg any]];
     
     OCMVerify([_mockClient GETCollectionAtEndpoint:[OCMArg any] completion:[OCMArg any]]);
 }
 
-- (void)testGetAllConversationsShouldFeedCoreData {
+- (void)testSyncCollectionOfTypeShouldSucceed {
     XCTestExpectation *expectation = [self expectationWithDescription:@"networkCallExpectation"];
     
     [_mockClient stopMocking];
@@ -64,12 +66,18 @@
     [_store connectUser:[_testHelper userID] completion:^(BOOL success, NSError *error) {
         XCTAssertNil(error);
         XCTAssertTrue(success);
-        [_store getAllConversationsCompletion:^(NSArray *conversations, NSError *error) {
+        
+        id<MTJSyncedEntity> classFromString = (id<MTJSyncedEntity>)NSClassFromString(@"Conversation");
+        assert([classFromString conformsToProtocol:@protocol(MTJSyncedEntity)]);
+        
+        [_store syncCollectionOfType:classFromString completion:^(NSArray *collection, NSError *error) {
             XCTAssertNil(error);
-            XCTAssertNotNil(conversations);
+            XCTAssertNotNil(collection);
             
             [expectation fulfill];
+
         }];
+         
     }];
     
     [self asyncWait];

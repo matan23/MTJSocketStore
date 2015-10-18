@@ -8,6 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSManagedObjectContext;
+
+// Model object that can be persisted and serialized/deserialized
+@protocol MTJSyncedEntity <NSObject>
+
++ (NSString *)identifierString;
++ (id<MTJSyncedEntity>)findOrCreateConversation:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
+
+- (void)loadFromDictionary:(NSDictionary *)dictionary;
++ (NSString *)entityName;
++ (NSString *)sortKey;
+
+//network
++ (NSString *)endpointURL;
+
+
+@end
+
+
+
 @protocol MTJClientProtocol <NSObject>
 
 + (instancetype)clientWithAppID:(NSString *)appID;
@@ -20,6 +40,9 @@
 
 
 
+
+@class MTJSyncedTableViewDataSource;
+
 @interface MTJSocketStore : NSObject
 
 @property (nonatomic) id<MTJClientProtocol> client;
@@ -28,9 +51,11 @@
 
 - (void)connectUser:(NSString *)userID completion:(void(^)(BOOL success, NSError *error))completion;
 
-- (void)getAllConversationsCompletion:(void(^)(NSArray *conversations, NSError *error))completion;
+- (void)syncCollectionOfType:(id<MTJSyncedEntity>)type
+                  completion:(void(^)(NSArray *collection, NSError *error))completion;
 
-- (void)getConversation:(NSString *)objID completion:(void(^)(NSDictionary *conversation, NSError *error))completion;
+
+- (MTJSyncedTableViewDataSource *)tableViewDataSourceForType:(id<MTJSyncedEntity>)type;
 
 @end
 

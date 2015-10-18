@@ -14,7 +14,7 @@
 
 - (void)loadFromDictionary:(NSDictionary *)dictionary
 {
-    self.obj_id = dictionary[@"id"];
+    self.obj_id = dictionary[[Conversation identifierString]];
     self.url = dictionary[@"url"];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -46,9 +46,22 @@
     return NSStringFromClass(self);
 }
 
++ (NSString *)sortKey {
+    return @"created_at";
+}
+
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext*)context
 {
     return [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
+}
+
+//name of the field to identify the object in core data
++ (NSString *)identifierString {
+    return @"id";
+}
+
++ (NSString *)endpointURL {
+    return @"conversations";
 }
 
 
