@@ -170,7 +170,8 @@
 				83EF00121BD2F31C00E97275 /* MTJTestHelper.h */,
 				83EF00131BD2F31C00E97275 /* MTJTestHelper.m */,
 			);
-			path = MTJSocketStoreTests;
+			name = MTJSocketStoreTests;
+			path = MTJSocketStore/MTJSocketStoreTests;
 			sourceTree = "<group>";
 		};
 		83EFFFFA1BD2DF0700E97275 /* WebSocket */ = {
@@ -519,7 +520,7 @@
 			baseConfigurationReference = 51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MTJSocketStoreTests/Info.plist;
+				INFOPLIST_FILE = MTJSocketStore/MTJSocketStoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,7 +533,7 @@
 			baseConfigurationReference = 2D17C0323A68C82043A4066F /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MTJSocketStoreTests/Info.plist;
+				INFOPLIST_FILE = MTJSocketStore/MTJSocketStoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
