@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		651C8267045B9E1E2653E732 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0392AA876445AEF8E998A /* libPods.a */; };
+		83EF00011BD2DFA600E97275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00001BD2DFA600E97275 /* Foundation.framework */; };
+		83EF00031BD2DFAB00E97275 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00021BD2DFAB00E97275 /* Security.framework */; };
+		83EF00051BD2DFC300E97275 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00041BD2DFC300E97275 /* libicucore.A.dylib */; };
+		83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */; settings = {ASSET_TAGS = (); }; };
+		83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF000E1BD2E90C00E97275 /* MTJLayerClient.m */; settings = {ASSET_TAGS = (); }; };
+		83EF00111BD2F2A600E97275 /* MTJLayerClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */; settings = {ASSET_TAGS = (); }; };
+		83EF00141BD2F31C00E97275 /* MTJTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF00131BD2F31C00E97275 /* MTJTestHelper.m */; settings = {ASSET_TAGS = (); }; };
+		83EF00161BD2F58B00E97275 /* layer_secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EF00151BD2F58B00E97275 /* layer_secrets.plist */; };
+		83EFFFD71BD2DBE900E97275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFD61BD2DBE900E97275 /* main.m */; };
+		83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFD91BD2DBE900E97275 /* AppDelegate.m */; };
+		83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFDC1BD2DBE900E97275 /* ViewController.m */; };
+		83EFFFE01BD2DBE900E97275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFFFDE1BD2DBE900E97275 /* Main.storyboard */; };
+		83EFFFE21BD2DBE900E97275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EFFFE11BD2DBE900E97275 /* Assets.xcassets */; };
+		83EFFFE51BD2DBE900E97275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFFFE31BD2DBE900E97275 /* LaunchScreen.storyboard */; };
+		83EFFFF01BD2DBEA00E97275 /* MTJSocketStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFEF1BD2DBEA00E97275 /* MTJSocketStoreTests.m */; };
+		83EFFFFD1BD2DF3800E97275 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFFC1BD2DF3800E97275 /* SRWebSocket.m */; settings = {ASSET_TAGS = (); }; };
+		83EFFFFF1BD2DFA100E97275 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EFFFFE1BD2DFA100E97275 /* CFNetwork.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83EFFFEC1BD2DBE900E97275 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83EFFFCA1BD2DBE900E97275 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83EFFFD11BD2DBE900E97275;
+			remoteInfo = MTJSocketStore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D17C0323A68C82043A4066F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		83EF00001BD2DFA600E97275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83EF00021BD2DFAB00E97275 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		83EF00041BD2DFC300E97275 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
+		83EF000A1BD2E3F100E97275 /* MTJSocketStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJSocketStore.h; sourceTree = "<group>"; };
+		83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJSocketStore.m; sourceTree = "<group>"; };
+		83EF000D1BD2E90C00E97275 /* MTJLayerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJLayerClient.h; sourceTree = "<group>"; };
+		83EF000E1BD2E90C00E97275 /* MTJLayerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerClient.m; sourceTree = "<group>"; };
+		83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerClientTests.m; sourceTree = "<group>"; };
+		83EF00121BD2F31C00E97275 /* MTJTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJTestHelper.h; sourceTree = "<group>"; };
+		83EF00131BD2F31C00E97275 /* MTJTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJTestHelper.m; sourceTree = "<group>"; };
+		83EF00151BD2F58B00E97275 /* layer_secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = layer_secrets.plist; path = MTJSocketStore/layer_secrets.plist; sourceTree = "<group>"; };
+		83EFFFD21BD2DBE900E97275 /* MTJSocketStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTJSocketStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83EFFFD61BD2DBE900E97275 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83EFFFD81BD2DBE900E97275 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MTJSocketStore/AppDelegate.h; sourceTree = "<group>"; };
+		83EFFFD91BD2DBE900E97275 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MTJSocketStore/AppDelegate.m; sourceTree = "<group>"; };
+		83EFFFDB1BD2DBE900E97275 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = MTJSocketStore/ViewController.h; sourceTree = "<group>"; };
+		83EFFFDC1BD2DBE900E97275 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = MTJSocketStore/ViewController.m; sourceTree = "<group>"; };
+		83EFFFDF1BD2DBE900E97275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83EFFFE11BD2DBE900E97275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83EFFFE41BD2DBE900E97275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83EFFFE61BD2DBE900E97275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83EFFFEB1BD2DBE900E97275 /* MTJSocketStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTJSocketStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83EFFFEF1BD2DBEA00E97275 /* MTJSocketStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTJSocketStoreTests.m; sourceTree = "<group>"; };
+		83EFFFF11BD2DBEA00E97275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83EFFFFB1BD2DF3800E97275 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		83EFFFFC1BD2DF3800E97275 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		83EFFFFE1BD2DFA100E97275 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A5F0392AA876445AEF8E998A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83EFFFCF1BD2DBE900E97275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EF00051BD2DFC300E97275 /* libicucore.A.dylib in Frameworks */,
+				83EF00031BD2DFAB00E97275 /* Security.framework in Frameworks */,
+				83EF00011BD2DFA600E97275 /* Foundation.framework in Frameworks */,
+				83EFFFFF1BD2DFA100E97275 /* CFNetwork.framework in Frameworks */,
+				651C8267045B9E1E2653E732 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83EFFFE81BD2DBE900E97275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83EF00061BD2DFF300E97275 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				83EF000D1BD2E90C00E97275 /* MTJLayerClient.h */,
+				83EF000E1BD2E90C00E97275 /* MTJLayerClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		83EF00091BD2E33800E97275 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				83EFFFD81BD2DBE900E97275 /* AppDelegate.h */,
+				83EFFFD91BD2DBE900E97275 /* AppDelegate.m */,
+				83EFFFDB1BD2DBE900E97275 /* ViewController.h */,
+				83EFFFDC1BD2DBE900E97275 /* ViewController.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		83EFFFC91BD2DBE900E97275 = {
+			isa = PBXGroup;
+			children = (
+				83EF00151BD2F58B00E97275 /* layer_secrets.plist */,
+				83EF00091BD2E33800E97275 /* App */,
+				83EFFFD51BD2DBE900E97275 /* Supporting Files */,
+				83EFFFD41BD2DBE900E97275 /* MTJSocketStore */,
+				83EFFFEE1BD2DBE900E97275 /* MTJSocketStoreTests */,
+				83EFFFD31BD2DBE900E97275 /* Products */,
+				8BD07B49304652264F397588 /* Pods */,
+				9218F7D570681D2FB0141F56 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		83EFFFD31BD2DBE900E97275 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83EFFFD21BD2DBE900E97275 /* MTJSocketStore.app */,
+				83EFFFEB1BD2DBE900E97275 /* MTJSocketStoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83EFFFD41BD2DBE900E97275 /* MTJSocketStore */ = {
+			isa = PBXGroup;
+			children = (
+				83EF00061BD2DFF300E97275 /* Client */,
+				83EFFFFA1BD2DF0700E97275 /* WebSocket */,
+				83EF000A1BD2E3F100E97275 /* MTJSocketStore.h */,
+				83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */,
+			);
+			path = MTJSocketStore;
+			sourceTree = "<group>";
+		};
+		83EFFFD51BD2DBE900E97275 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83EFFFDE1BD2DBE900E97275 /* Main.storyboard */,
+				83EFFFE11BD2DBE900E97275 /* Assets.xcassets */,
+				83EFFFE31BD2DBE900E97275 /* LaunchScreen.storyboard */,
+				83EFFFE61BD2DBE900E97275 /* Info.plist */,
+				83EFFFD61BD2DBE900E97275 /* main.m */,
+			);
+			name = "Supporting Files";
+			path = MTJSocketStore;
+			sourceTree = "<group>";
+		};
+		83EFFFEE1BD2DBE900E97275 /* MTJSocketStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				83EFFFEF1BD2DBEA00E97275 /* MTJSocketStoreTests.m */,
+				83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */,
+				83EFFFF11BD2DBEA00E97275 /* Info.plist */,
+				83EF00121BD2F31C00E97275 /* MTJTestHelper.h */,
+				83EF00131BD2F31C00E97275 /* MTJTestHelper.m */,
+			);
+			path = MTJSocketStoreTests;
+			sourceTree = "<group>";
+		};
+		83EFFFFA1BD2DF0700E97275 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				83EFFFFB1BD2DF3800E97275 /* SRWebSocket.h */,
+				83EFFFFC1BD2DF3800E97275 /* SRWebSocket.m */,
+			);
+			name = WebSocket;
+			sourceTree = "<group>";
+		};
+		8BD07B49304652264F397588 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */,
+				2D17C0323A68C82043A4066F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9218F7D570681D2FB0141F56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83EF00041BD2DFC300E97275 /* libicucore.A.dylib */,
+				83EF00021BD2DFAB00E97275 /* Security.framework */,
+				83EF00001BD2DFA600E97275 /* Foundation.framework */,
+				83EFFFFE1BD2DFA100E97275 /* CFNetwork.framework */,
+				A5F0392AA876445AEF8E998A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83EFFFD11BD2DBE900E97275 /* MTJSocketStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83EFFFF41BD2DBEA00E97275 /* Build configuration list for PBXNativeTarget "MTJSocketStore" */;
+			buildPhases = (
+				F4268F733C0A48134E6E7BD3 /* Check Pods Manifest.lock */,
+				83EFFFCE1BD2DBE900E97275 /* Sources */,
+				83EFFFCF1BD2DBE900E97275 /* Frameworks */,
+				83EFFFD01BD2DBE900E97275 /* Resources */,
+				A7A55EE63EB7F3A9CBF94E8C /* Embed Pods Frameworks */,
+				ED6F8530C4E09D10A8ECBAAB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MTJSocketStore;
+			productName = MTJSocketStore;
+			productReference = 83EFFFD21BD2DBE900E97275 /* MTJSocketStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83EFFFEA1BD2DBE900E97275 /* MTJSocketStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83EFFFF71BD2DBEA00E97275 /* Build configuration list for PBXNativeTarget "MTJSocketStoreTests" */;
+			buildPhases = (
+				83EFFFE71BD2DBE900E97275 /* Sources */,
+				83EFFFE81BD2DBE900E97275 /* Frameworks */,
+				83EFFFE91BD2DBE900E97275 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83EFFFED1BD2DBE900E97275 /* PBXTargetDependency */,
+			);
+			name = MTJSocketStoreTests;
+			productName = MTJSocketStoreTests;
+			productReference = 83EFFFEB1BD2DBE900E97275 /* MTJSocketStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83EFFFCA1BD2DBE900E97275 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = mataejoon;
+				TargetAttributes = {
+					83EFFFD11BD2DBE900E97275 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					83EFFFEA1BD2DBE900E97275 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 83EFFFD11BD2DBE900E97275;
+					};
+				};
+			};
+			buildConfigurationList = 83EFFFCD1BD2DBE900E97275 /* Build configuration list for PBXProject "MTJSocketStore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83EFFFC91BD2DBE900E97275;
+			productRefGroup = 83EFFFD31BD2DBE900E97275 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83EFFFD11BD2DBE900E97275 /* MTJSocketStore */,
+				83EFFFEA1BD2DBE900E97275 /* MTJSocketStoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83EFFFD01BD2DBE900E97275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EF00161BD2F58B00E97275 /* layer_secrets.plist in Resources */,
+				83EFFFE51BD2DBE900E97275 /* LaunchScreen.storyboard in Resources */,
+				83EFFFE21BD2DBE900E97275 /* Assets.xcassets in Resources */,
+				83EFFFE01BD2DBE900E97275 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83EFFFE91BD2DBE900E97275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A7A55EE63EB7F3A9CBF94E8C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED6F8530C4E09D10A8ECBAAB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4268F733C0A48134E6E7BD3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83EFFFCE1BD2DBE900E97275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */,
+				83EFFFFD1BD2DF3800E97275 /* SRWebSocket.m in Sources */,
+				83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */,
+				83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */,
+				83EFFFD71BD2DBE900E97275 /* main.m in Sources */,
+				83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83EFFFE71BD2DBE900E97275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EF00141BD2F31C00E97275 /* MTJTestHelper.m in Sources */,
+				83EF00111BD2F2A600E97275 /* MTJLayerClientTests.m in Sources */,
+				83EFFFF01BD2DBEA00E97275 /* MTJSocketStoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83EFFFED1BD2DBE900E97275 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83EFFFD11BD2DBE900E97275 /* MTJSocketStore */;
+			targetProxy = 83EFFFEC1BD2DBE900E97275 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83EFFFDE1BD2DBE900E97275 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83EFFFDF1BD2DBE900E97275 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		83EFFFE31BD2DBE900E97275 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83EFFFE41BD2DBE900E97275 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83EFFFF21BD2DBEA00E97275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83EFFFF31BD2DBEA00E97275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D17C0323A68C82043A4066F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83EFFFF51BD2DBEA00E97275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MTJSocketStore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		83EFFFF61BD2DBEA00E97275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D17C0323A68C82043A4066F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MTJSocketStore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		83EFFFF81BD2DBEA00E97275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MTJSocketStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MTJSocketStore.app/MTJSocketStore";
+			};
+			name = Debug;
+		};
+		83EFFFF91BD2DBEA00E97275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D17C0323A68C82043A4066F /* Pods.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MTJSocketStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mataejoon.MTJSocketStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MTJSocketStore.app/MTJSocketStore";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83EFFFCD1BD2DBE900E97275 /* Build configuration list for PBXProject "MTJSocketStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EFFFF21BD2DBEA00E97275 /* Debug */,
+				83EFFFF31BD2DBEA00E97275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83EFFFF41BD2DBEA00E97275 /* Build configuration list for PBXNativeTarget "MTJSocketStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EFFFF51BD2DBEA00E97275 /* Debug */,
+				83EFFFF61BD2DBEA00E97275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83EFFFF71BD2DBEA00E97275 /* Build configuration list for PBXNativeTarget "MTJSocketStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EFFFF81BD2DBEA00E97275 /* Debug */,
+				83EFFFF91BD2DBEA00E97275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83EFFFCA1BD2DBE900E97275 /* Project object */;
+}
