@@ -33,8 +33,6 @@
     _dataSource = [[MTJSocketStore sharedStore] tableViewDataSourceForType:(id<MTJSyncedEntity>)[Conversation class]];    
     [_dataSource setDelegate:self tableView:_tableView withCellIdentifier:@"Cell"];
     
-    _tableView.dataSource = _dataSource;
-    
     [_dataSource sync];
 }
 
