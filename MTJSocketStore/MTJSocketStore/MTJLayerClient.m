@@ -52,7 +52,7 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
 }
 
 - (void)requestNonceCompletion:(void(^)(NSString *nonce, NSError *error))completion {
-    [[self layerSessionManager] POST:@"/nonces" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [[self layerAuthSessionManager] POST:@"/nonces" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSDictionary *dic = responseObject;
         NSError *error = nil;
         NSString *nonce = [self tryReadDictionary:dic ForKey:@"nonce" error:&error];
@@ -91,7 +91,7 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
     
     NSDictionary *params = @{@"app_id": _appID,
                              @"identity_token": identityToken};
-    [[self layerSessionManager] POST:@"/sessions" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [[self layerAuthSessionManager] POST:@"/sessions" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSDictionary *dic = responseObject;
         NSError *error = nil;
         NSString *sessionToken = [self tryReadDictionary:dic ForKey:@"session_token" error:&error];
@@ -102,13 +102,46 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
     }];
 }
 
+- (void)GETCollectionAtEndpoint:(NSString *)endpoint completion:(void(^)(NSDictionary *responseObj, NSError *error))completion {
+    [self GETObjectAtEndpoint:endpoint withObjID:nil completion:completion];
+}
+
+
+- (void)GETObjectAtEndpoint:(NSString *)endpoint withObjID:(NSString *)objID completion:(void (^)(NSDictionary *, NSError *))completion {
+    NSString *url = [NSString stringWithFormat:@"%@/%@", kBaseUrl, endpoint];
+    
+//    GET Single Object /obj/uuid
+    if (objID) {
+        url = [NSString stringWithFormat:@"%@/%@", url, objID];
+    }
+
+    [[self layerSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        NSData *data = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+        NSError *jsonParseError;
+        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParseError];
+        
+        if (!jsonParseError) {
+            NSNumber *code = response[@"code"];
+            if ([code integerValue] == 4)
+                NSLog(@"session token expired, should reconnect here");
+        }
+        completion(nil, error);
+    }];
+}
+
 - (AFHTTPSessionManager *)layerSessionManager {
     if (_layerSessionManager) return _layerSessionManager;
     
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    NSString *authorization = [NSString stringWithFormat:@"Layer session-token='%@'", _sessionToken];
     config.HTTPAdditionalHeaders = @{
                                      @"Accept":@"application/vnd.layer+json; version=1.0",
-                                     @"Content-Type":@"application/json"
+                                     @"Content-Type":@"application/json",
+                                     @"Authorization":authorization
                                      };
     
     _layerSessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[self baseURL] sessionConfiguration:config];
@@ -120,6 +153,24 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
     _layerSessionManager.securityPolicy = policy;
     
     return _layerSessionManager;
+}
+
+- (AFHTTPSessionManager *)layerAuthSessionManager {
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    config.HTTPAdditionalHeaders = @{
+                                     @"Accept":@"application/vnd.layer+json; version=1.0",
+                                     @"Content-Type":@"application/json"
+                                     };
+    
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[self baseURL] sessionConfiguration:config];
+    sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //    i want to use charles for now.
+    AFSecurityPolicy* policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    [policy setValidatesDomainName:NO];
+    sessionManager.securityPolicy = policy;
+    
+    return sessionManager;
 }
 
 

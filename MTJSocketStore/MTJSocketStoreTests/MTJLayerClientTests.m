@@ -64,6 +64,27 @@
     [self asyncWait];
 }
 
+- (void)testRequestConversationShoudlSucceed {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"networkCallExpectation"];
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    [_client connectUser:[_testHelper userID] completion:^(BOOL success, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertTrue(success);
+        
+        [_client GETCollectionAtEndpoint:@"conversations" completion:^(NSDictionary *responseObj, NSError *error) {
+            XCTAssertNotNil(responseObj);
+            XCTAssertNil(error);
+            [expectation fulfill];
+        }];
+        
+        
+    }];
+    
+    [self asyncWait];
+
+}
+
 - (void)asyncWait {
     [self waitForExpectationsWithTimeout:100.0 handler:^(NSError *error) {
         if (error) {

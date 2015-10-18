@@ -16,4 +16,8 @@
 
 - (void)connectUser:(NSString *)userID completion:(void(^)(BOOL success, NSError *error))completion;
 
+- (void)GETCollectionAtEndpoint:(NSString *)endpoint completion:(void(^)(NSDictionary *responseObj, NSError *error))completion;
+
+- (void)GETObjectAtEndpoint:(NSString *)endpoint withObjID:(NSString *)objID completion:(void(^)(NSDictionary *responseObj, NSError *error))completion;
+
 @end

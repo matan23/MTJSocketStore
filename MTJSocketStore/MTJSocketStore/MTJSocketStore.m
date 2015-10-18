@@ -26,6 +26,15 @@
     
     [_client connectUser:userID completion:^(BOOL success, NSError *error) {
         
+        if (success) {
+            
+            completion(YES, nil);
+        } else {
+            
+            completion(success, error);
+        }
+        
+        
     }];
 }
 
