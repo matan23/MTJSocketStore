@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		651C8267045B9E1E2653E732 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F0392AA876445AEF8E998A /* libPods.a */; };
+		830C2E931BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2E921BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		830C2E941BD417B000B2AC5E /* MTJLayerKeysHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF00131BD2F31C00E97275 /* MTJLayerKeysHelper.m */; settings = {ASSET_TAGS = (); }; };
+		830C2E9C1BD43BBF00B2AC5E /* TestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2E9A1BD4393100B2AC5E /* TestingAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8390901F1BD34BD50086924C /* MTJSocketStore.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 839090291BD34C760086924C /* Conversation+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		8390902D1BD34C760086924C /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390902B1BD34C760086924C /* Conversation.m */; settings = {ASSET_TAGS = (); }; };
@@ -18,7 +21,6 @@
 		83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */; settings = {ASSET_TAGS = (); }; };
 		83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF000E1BD2E90C00E97275 /* MTJLayerClient.m */; settings = {ASSET_TAGS = (); }; };
 		83EF00111BD2F2A600E97275 /* MTJLayerClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */; settings = {ASSET_TAGS = (); }; };
-		83EF00141BD2F31C00E97275 /* MTJTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF00131BD2F31C00E97275 /* MTJTestHelper.m */; settings = {ASSET_TAGS = (); }; };
 		83EF00161BD2F58B00E97275 /* layer_secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EF00151BD2F58B00E97275 /* layer_secrets.plist */; };
 		83EFFFD71BD2DBE900E97275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFD61BD2DBE900E97275 /* main.m */; };
 		83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFD91BD2DBE900E97275 /* AppDelegate.m */; };
@@ -44,6 +46,10 @@
 /* Begin PBXFileReference section */
 		2D17C0323A68C82043A4066F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		51632195C4A84DAC520C5C97 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		830C2E911BD4063500B2AC5E /* MTJSyncedTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTJSyncedTableViewDataSource.h; path = MTJSocketStore/MTJSocketStore/MTJSyncedTableViewDataSource.h; sourceTree = SOURCE_ROOT; };
+		830C2E921BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTJSyncedTableViewDataSource.m; path = MTJSocketStore/MTJSocketStore/MTJSyncedTableViewDataSource.m; sourceTree = SOURCE_ROOT; };
+		830C2E991BD4393100B2AC5E /* TestingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingAppDelegate.h; sourceTree = "<group>"; };
+		830C2E9A1BD4393100B2AC5E /* TestingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingAppDelegate.m; sourceTree = "<group>"; };
 		839090201BD34BD50086924C /* MTJSocketStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTJSocketStore.xcdatamodel; sourceTree = "<group>"; };
 		839090281BD34C760086924C /* Conversation+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Conversation+CoreDataProperties.h"; sourceTree = "<group>"; };
 		839090291BD34C760086924C /* Conversation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Conversation+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -59,8 +65,8 @@
 		83EF000D1BD2E90C00E97275 /* MTJLayerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJLayerClient.h; sourceTree = "<group>"; };
 		83EF000E1BD2E90C00E97275 /* MTJLayerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerClient.m; sourceTree = "<group>"; };
 		83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerClientTests.m; sourceTree = "<group>"; };
-		83EF00121BD2F31C00E97275 /* MTJTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJTestHelper.h; sourceTree = "<group>"; };
-		83EF00131BD2F31C00E97275 /* MTJTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJTestHelper.m; sourceTree = "<group>"; };
+		83EF00121BD2F31C00E97275 /* MTJLayerKeysHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJLayerKeysHelper.h; sourceTree = "<group>"; };
+		83EF00131BD2F31C00E97275 /* MTJLayerKeysHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerKeysHelper.m; sourceTree = "<group>"; };
 		83EF00151BD2F58B00E97275 /* layer_secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = layer_secrets.plist; sourceTree = "<group>"; };
 		83EFFFD21BD2DBE900E97275 /* MTJSocketStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTJSocketStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EFFFD61BD2DBE900E97275 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Example/main.m; sourceTree = "<group>"; };
@@ -168,6 +174,8 @@
 				83EFFFFA1BD2DF0700E97275 /* WebSocket */,
 				83EF000A1BD2E3F100E97275 /* MTJSocketStore.h */,
 				83EF000B1BD2E3F100E97275 /* MTJSocketStore.m */,
+				830C2E911BD4063500B2AC5E /* MTJSyncedTableViewDataSource.h */,
+				830C2E921BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m */,
 				83EF00151BD2F58B00E97275 /* layer_secrets.plist */,
 			);
 			name = MTJSocketStore;
@@ -193,8 +201,10 @@
 				83EFFFEF1BD2DBEA00E97275 /* MTJSocketStoreTests.m */,
 				83EF00101BD2F2A600E97275 /* MTJLayerClientTests.m */,
 				83EFFFF11BD2DBEA00E97275 /* Info.plist */,
-				83EF00121BD2F31C00E97275 /* MTJTestHelper.h */,
-				83EF00131BD2F31C00E97275 /* MTJTestHelper.m */,
+				83EF00121BD2F31C00E97275 /* MTJLayerKeysHelper.h */,
+				83EF00131BD2F31C00E97275 /* MTJLayerKeysHelper.m */,
+				830C2E991BD4393100B2AC5E /* TestingAppDelegate.h */,
+				830C2E9A1BD4393100B2AC5E /* TestingAppDelegate.m */,
 			);
 			name = MTJSocketStoreTests;
 			path = MTJSocketStore/MTJSocketStoreTests;
@@ -384,12 +394,14 @@
 			files = (
 				839090301BD357960086924C /* PersistentStack.m in Sources */,
 				83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */,
+				830C2E931BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m in Sources */,
 				83EFFFFD1BD2DF3800E97275 /* SRWebSocket.m in Sources */,
 				83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */,
 				83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */,
 				83EFFFD71BD2DBE900E97275 /* main.m in Sources */,
 				83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */,
 				8390902D1BD34C760086924C /* Conversation.m in Sources */,
+				830C2E941BD417B000B2AC5E /* MTJLayerKeysHelper.m in Sources */,
 				8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */,
 				839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */,
 			);
@@ -399,8 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83EF00141BD2F31C00E97275 /* MTJTestHelper.m in Sources */,
 				83EF00111BD2F2A600E97275 /* MTJLayerClientTests.m in Sources */,
+				830C2E9C1BD43BBF00B2AC5E /* TestingAppDelegate.m in Sources */,
 				83EFFFF01BD2DBEA00E97275 /* MTJSocketStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
