@@ -14,6 +14,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Conversation : NSManagedObject <MTJSyncedEntity>
+
+@end
+
+@interface TransformableParticipantsArray : NSValueTransformer
 @end
 
 

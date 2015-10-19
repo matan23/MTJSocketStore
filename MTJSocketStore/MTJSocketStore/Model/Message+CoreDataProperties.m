@@ -1,5 +1,5 @@
 //
-//  Conversation+CoreDataProperties.m
+//  Message+CoreDataProperties.m
 //  
 //
 //  Created by sintaiyuan on 10/19/15.
@@ -9,14 +9,15 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Conversation+CoreDataProperties.h"
+#import "Message+CoreDataProperties.h"
 
-@implementation Conversation (CoreDataProperties)
+@implementation Message (CoreDataProperties)
 
-@dynamic createdAt;
 @dynamic objId;
 @dynamic url;
-@dynamic participants;
-@dynamic messages;
+@dynamic receiptsUrl;
+@dynamic sentAt;
+@dynamic conversation;
+@dynamic messageText;
 
 @end

@@ -3,9 +3,20 @@
     <entity name="Conversation" representedClassName="Conversation" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="objId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="participants" optional="YES" attributeType="Transformable" valueTransformerName="TransformableParticipantsArray" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Message" inverseName="conversation" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES">
+        <attribute name="messageText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receiptsUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sentAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="messages" inverseEntity="Conversation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Conversation" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Conversation" positionX="-405" positionY="-108" width="128" height="118"/>
+        <element name="Message" positionX="-63" positionY="9" width="128" height="133"/>
     </elements>
 </model>

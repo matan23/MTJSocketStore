@@ -1,68 +1,59 @@
 //
-//  Conversation.m
+//  Message.m
 //  
 //
-//  Created by sintaiyuan on 10/18/15.
+//  Created by sintaiyuan on 10/19/15.
 //
 //
 
+#import "Message.h"
 #import "Conversation.h"
 
-@implementation TransformableParticipantsArray
-
-//transformable participants array
-+ (Class)transformedValueClass
-{
-    return [NSArray class];
-}
-
-+ (BOOL)allowsReverseTransformation
-{
-    return YES;
-}
-
-- (id)transformedValue:(id)value
-{
-    return [NSKeyedArchiver archivedDataWithRootObject:value];
-}
-
-- (id)reverseTransformedValue:(id)value
-{
-    return [NSKeyedUnarchiver unarchiveObjectWithData:value];
-}
-@end
-
-@implementation Conversation
+@implementation Message
 
 - (void)loadFromDictionary:(NSDictionary *)dictionary
 {
     self.objId = dictionary[@"id"];
     self.url = dictionary[@"url"];
-    self.participants = dictionary[@"participants"];
+    self.receiptsUrl = dictionary[@"receipts_url"];
+    self.sentAt = dictionary[@"sent_at"];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSDate *date = [dateFormat dateFromString:dictionary[@"created_at"]];
-    self.createdAt = date;
+    NSDate *date = [dateFormat dateFromString:dictionary[@"sent_at"]];
+    self.sentAt = date;
+//    CHANGE
+//    self.conversation = [Conversation findOrCreateEntity:dictionary[@"conversation"][@"id"] inContext:nil];
 }
 
-//"data": {
-//  "participants": [ "1234", "5678" ],
-//  "distinct": false,
-//  "metadata": {
-//      "background_color": "#3c3c3c"
-//  }
+
+//{
+//    "parts": [
+//              {
+//                  "body": "Hello, World!",
+//                  "mime_type": "text/plain"
+//              },
+//              {
+//                  "body": "YW55IGNhcm5hbCBwbGVhc3VyZQ==",
+//                  "mime_type": "image/jpeg",
+//                  "encoding": "base64"
+//              }
+//              ],
+//    "notification": {
+//        "text": "This is the alert text to include with the Push Notification.",
+//        "sound": "chime.aiff"
+//    }
 //}
 - (NSDictionary *)serializedCreateRequestDictionary {
-    NSDictionary *data = @{@"participants": self.participants,
-                           @"distinct":@YES,
-                           @"metadata":@{@"background_color":@"#3c3c3c"}
+    NSDictionary *data = @{@"parts":@{@"body":self.messageText}
                            };
-    NSDictionary *body = @{ @"method": @"Conversation.create",
-                            @"request_id": [NSString stringWithFormat:@"conversation.create.%@", [NSString stringWithFormat:@"%@-%@", self.participants[0], self.participants[1]]],
+    NSDictionary *body = @{ @"method": @"Message.create",
+                            @"request_id": [NSString stringWithFormat:@"message.create.%@", [NSDate date]],
+                            @"object_id": self.conversation.objId,
                             @"data": data};
     NSDictionary *parameters = @{ @"type": @"request", @"body": body};
     return parameters;
+    return nil;
 }
 
 - (void)deserializedCreateRequestDictionary:(NSDictionary *)dictionary {
@@ -107,14 +98,13 @@
 }
 
 + (NSString *)endpointURL {
-    return @"conversations";
+    return @"messages";
 }
 
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@" id: %@\n url: %@\n created_at:%@\n",
-            self.objId, self.url, self.createdAt];
+    return [NSString stringWithFormat:@" id: %@\n url: %@\n messageText:%@\n",
+            self.objId, self.url, self.messageText];
 }
-
-
 @end
+

@@ -11,6 +11,9 @@
 		830C2E931BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2E921BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
 		830C2E941BD417B000B2AC5E /* MTJLayerKeysHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF00131BD2F31C00E97275 /* MTJLayerKeysHelper.m */; settings = {ASSET_TAGS = (); }; };
 		830C2E9C1BD43BBF00B2AC5E /* TestingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2E9A1BD4393100B2AC5E /* TestingAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		830C2E9F1BD44F5400B2AC5E /* MTJLayerSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2E9E1BD44F5400B2AC5E /* MTJLayerSocketClient.m */; settings = {ASSET_TAGS = (); }; };
+		830C2EA41BD4746300B2AC5E /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2EA11BD4746300B2AC5E /* Message+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		830C2EA51BD4746300B2AC5E /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2EA31BD4746300B2AC5E /* Message.m */; settings = {ASSET_TAGS = (); }; };
 		839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8390901F1BD34BD50086924C /* MTJSocketStore.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 839090291BD34C760086924C /* Conversation+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		8390902D1BD34C760086924C /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390902B1BD34C760086924C /* Conversation.m */; settings = {ASSET_TAGS = (); }; };
@@ -50,6 +53,12 @@
 		830C2E921BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTJSyncedTableViewDataSource.m; path = MTJSocketStore/MTJSocketStore/MTJSyncedTableViewDataSource.m; sourceTree = SOURCE_ROOT; };
 		830C2E991BD4393100B2AC5E /* TestingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingAppDelegate.h; sourceTree = "<group>"; };
 		830C2E9A1BD4393100B2AC5E /* TestingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingAppDelegate.m; sourceTree = "<group>"; };
+		830C2E9D1BD44F5400B2AC5E /* MTJLayerSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTJLayerSocketClient.h; sourceTree = "<group>"; };
+		830C2E9E1BD44F5400B2AC5E /* MTJLayerSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTJLayerSocketClient.m; sourceTree = "<group>"; };
+		830C2EA01BD4746300B2AC5E /* Message+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataProperties.h"; sourceTree = "<group>"; };
+		830C2EA11BD4746300B2AC5E /* Message+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataProperties.m"; sourceTree = "<group>"; };
+		830C2EA21BD4746300B2AC5E /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		830C2EA31BD4746300B2AC5E /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		839090201BD34BD50086924C /* MTJSocketStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTJSocketStore.xcdatamodel; sourceTree = "<group>"; };
 		839090281BD34C760086924C /* Conversation+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Conversation+CoreDataProperties.h"; sourceTree = "<group>"; };
 		839090291BD34C760086924C /* Conversation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Conversation+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -113,6 +122,10 @@
 		839090011BD349D60086924C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				830C2EA01BD4746300B2AC5E /* Message+CoreDataProperties.h */,
+				830C2EA11BD4746300B2AC5E /* Message+CoreDataProperties.m */,
+				830C2EA21BD4746300B2AC5E /* Message.h */,
+				830C2EA31BD4746300B2AC5E /* Message.m */,
 				8390902E1BD357960086924C /* PersistentStack.h */,
 				8390902F1BD357960086924C /* PersistentStack.m */,
 				839090281BD34C760086924C /* Conversation+CoreDataProperties.h */,
@@ -129,11 +142,13 @@
 			children = (
 				83EF000D1BD2E90C00E97275 /* MTJLayerClient.h */,
 				83EF000E1BD2E90C00E97275 /* MTJLayerClient.m */,
+				830C2E9D1BD44F5400B2AC5E /* MTJLayerSocketClient.h */,
+				830C2E9E1BD44F5400B2AC5E /* MTJLayerSocketClient.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
 		};
-		83EF00091BD2E33800E97275 /* App */ = {
+		83EF00091BD2E33800E97275 /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				83EFFFD51BD2DBE900E97275 /* Supporting Files */,
@@ -142,13 +157,13 @@
 				83EFFFDB1BD2DBE900E97275 /* ViewController.h */,
 				83EFFFDC1BD2DBE900E97275 /* ViewController.m */,
 			);
-			name = App;
+			name = ExampleApp;
 			sourceTree = "<group>";
 		};
 		83EFFFC91BD2DBE900E97275 = {
 			isa = PBXGroup;
 			children = (
-				83EF00091BD2E33800E97275 /* App */,
+				83EF00091BD2E33800E97275 /* ExampleApp */,
 				83EFFFD41BD2DBE900E97275 /* MTJSocketStore */,
 				83EFFFEE1BD2DBE900E97275 /* MTJSocketStoreTests */,
 				83EFFFD31BD2DBE900E97275 /* Products */,
@@ -395,13 +410,16 @@
 				839090301BD357960086924C /* PersistentStack.m in Sources */,
 				83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */,
 				830C2E931BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m in Sources */,
+				830C2EA41BD4746300B2AC5E /* Message+CoreDataProperties.m in Sources */,
 				83EFFFFD1BD2DF3800E97275 /* SRWebSocket.m in Sources */,
 				83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */,
 				83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */,
+				830C2EA51BD4746300B2AC5E /* Message.m in Sources */,
 				83EFFFD71BD2DBE900E97275 /* main.m in Sources */,
 				83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */,
 				8390902D1BD34C760086924C /* Conversation.m in Sources */,
 				830C2E941BD417B000B2AC5E /* MTJLayerKeysHelper.m in Sources */,
+				830C2E9F1BD44F5400B2AC5E /* MTJLayerSocketClient.m in Sources */,
 				8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */,
 				839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */,
 			);
