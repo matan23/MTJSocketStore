@@ -100,7 +100,8 @@
     } else if (type == NSFetchedResultsChangeDelete) {
         [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else {
-        NSAssert(NO,@"");
+        NSLog(@"NSFetchedResultController change type no implemented %ld", type);
+//        NSAssert(NO,@"");
     }
 }
 
