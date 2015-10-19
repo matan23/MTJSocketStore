@@ -1,7 +1,7 @@
 # MTJSocketStore
 
 # Intro
-SocketStore goal is to provide a template architecture for networked application, it provides a facade that rely on several dependencies that can be injected to the store. For now I have included concrete implementations of the clients that use https://layer.com. see #Architecture
+SocketStore goal is to provide a template (and later on a  framework) architecture for networked application, it is a facade object that provides APIs for CRUD as well as a connected DataSource which is synced with the cloud. The facade object rely on several dependencies that can be injected to it. For now I have included concrete implementations of the clients that use https://layer.com. see #Architecture
 
 ## Work In Progress, TODOs:
 - **Reachability**, /!\ current store crashes (yes.) and do not work when connection is down /!\
@@ -15,7 +15,7 @@ SocketStore goal is to provide a template architecture for networked application
 An example App is provided for usage of the store.
 
 ## RoadMap
-Long term goal is for you to only provide:
+Long term goal is to make it a framework so that you can just use the facade SocketStore object and let you provide only:
 - RESTClient a tailored for your server's requirements
 - SocketClient a tailored for your server's requirements
 - Entities
