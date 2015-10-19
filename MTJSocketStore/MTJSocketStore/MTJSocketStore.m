@@ -13,7 +13,6 @@
 #import "MTJSyncedTableViewDataSource.h"
 
 @interface MTJSocketStore() {
-    dispatch_queue_t _parsingConcurrentQueue;
     NSManagedObjectContext *_backGroundContext;
 }
 @end
@@ -35,7 +34,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _parsingConcurrentQueue = dispatch_queue_create("com.mtjsocketstore.parsingconcurrentqueue", DISPATCH_QUEUE_CONCURRENT);
         _backGroundContext = [PersistentStack sharedManager].backgroundManagedObjectContext;
     }
     return self;
@@ -48,13 +46,19 @@
     
     [_client connectUser:userID completion:^(BOOL success, NSError *error) {
         if (success) {
-            
+    
+            NSAssert(_socketClient, @"client not set");
+            [_socketClient connectToSession:_client.sessionToken];
             completion(YES, nil);
         } else {
             
             completion(success, error);
         }
     }];
+}
+
+- (void)syncedInsertEntityOfType:(id<MTJSyncedEntity>)type {
+    [_socketClient sendData:[type serializedCreateRequestDictionary]];
 }
 
 - (void)syncCollectionOfType:(id<MTJSyncedEntity>)type
@@ -82,8 +86,7 @@
             NSString *identifier = dictionary[[type identifierString]];
             
             assert(identifier);
-            id<MTJSyncedEntity> entity = [type findOrCreateConversation:identifier
-                                                              inContext:_backGroundContext];
+            id<MTJSyncedEntity> entity = [type findOrCreateEntity:identifier inContext:_backGroundContext];
             [entity loadFromDictionary:dictionary];
             [ret addObject:entity];
         }

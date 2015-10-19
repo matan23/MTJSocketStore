@@ -13,22 +13,27 @@
 // Model object that can be persisted and serialized/deserialized
 @protocol MTJSyncedEntity <NSObject>
 
+//name of the field in the core data model to identify the object
 + (NSString *)identifierString;
-+ (id<MTJSyncedEntity>)findOrCreateConversation:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
++ (id<MTJSyncedEntity>)findOrCreateEntity:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
 
+//serialize/deserializing
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)serializedCreateRequestDictionary;
+
 + (NSString *)entityName;
 + (NSString *)sortKey;
 
-//network
+//REST url for the resource: ex: for https://mywebserver.com/conversations the value would be 'conversations'
 + (NSString *)endpointURL;
-
 
 @end
 
 
 
 @protocol MTJClientProtocol <NSObject>
+
+@property (nonatomic, readonly) NSString *sessionToken;
 
 + (instancetype)clientWithAppID:(NSString *)appID;
 
@@ -39,6 +44,24 @@
 @end
 
 
+@protocol MTJSocketClientDelegate <NSObject>
+- (void)socketDidOpen;
+- (void)socketDidFailWithError:(NSError *)error;
+- (void)socketDidCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
+- (void)didReceiveData:(NSDictionary *)data;
+@end
+
+@protocol MTJSocketClientProtocol <NSObject>
+
+@property (nonatomic, weak) id<MTJSocketClientDelegate> delegate;
+
++ (instancetype)client;
+
+- (void)connectToSession:(NSString *)sessionToken;
+- (void)sendData:(NSDictionary *)data;
+
+@end
+
 
 
 @class MTJSyncedTableViewDataSource;
@@ -46,6 +69,7 @@
 @interface MTJSocketStore : NSObject
 
 @property (nonatomic) id<MTJClientProtocol> client;
+@property (nonatomic) id<MTJSocketClientProtocol> socketClient;
 
 + (instancetype)sharedStore;
 
@@ -54,6 +78,7 @@
 - (void)syncCollectionOfType:(id<MTJSyncedEntity>)type
                   completion:(void(^)(NSArray *collection, NSError *error))completion;
 
+- (void)syncedInsertEntityOfType:(id<MTJSyncedEntity>)type;
 
 - (MTJSyncedTableViewDataSource *)tableViewDataSourceForType:(id<MTJSyncedEntity>)type;
 
