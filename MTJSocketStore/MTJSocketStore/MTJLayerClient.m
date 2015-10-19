@@ -39,12 +39,15 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
         [self requestIdentityTokenWithNonce:nonce forUserID:userID completion:^(NSString *identityToken, NSError *error) {
             [self requestSessionTokenForIdentityToken:identityToken completion:^(NSString *sessionToken, NSError *error) {
                 
-                _sessionToken = sessionToken;
-                if (_sessionToken) {
-                    completion(YES, error);
-                } else {
-                    completion(NO, error);
-                }
+                _sessionToken = [sessionToken copy];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (_sessionToken) {
+                        completion(YES, error);
+                    } else {
+                        completion(NO, error);
+                    }
+                    
+                });
             }];
         }];
     }];
