@@ -13,7 +13,6 @@
 @interface MTJLayerClient() {
     NSString *_appID;
     AFHTTPSessionManager *_layerSessionManager;
-    NSString *_sessionToken;
 }
 
 @end
@@ -24,7 +23,7 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
 
 + (instancetype)clientWithAppID:(NSString *)appID {
     MTJLayerClient *client = [MTJLayerClient new];
-    client->_appID = appID;
+    client->_appID = [appID copy];
     
     return client;
 }
@@ -191,7 +190,7 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
           NSLocalizedRecoverySuggestionErrorKey: @"Check request"
           };
         
-        *error = [[NSError alloc] initWithDomain:@"api.layer.com" code:-1 userInfo:userInfo];
+        *error = [[NSError alloc] initWithDomain:@"com.mtjsocketstore.mtlayerclient" code:500 userInfo:userInfo];
     }
     return dic[key];
 }

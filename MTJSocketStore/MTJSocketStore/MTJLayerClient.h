@@ -12,6 +12,8 @@
 
 @interface MTJLayerClient : NSObject <MTJClientProtocol>
 
+@property (nonatomic, readonly) NSString *sessionToken;
+
 + (instancetype)clientWithAppID:(NSString *)appID;
 
 - (void)connectUser:(NSString *)userID completion:(void(^)(BOOL success, NSError *error))completion;
