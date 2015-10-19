@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MTJSocketStore.h"
 #import "MTJLayerClient.h"
+#import "MTJLayerSocketClient.h"
 #import "MTJLayerKeysHelper.h"
 
 @interface AppDelegate ()
@@ -22,13 +23,22 @@
     // Override point for customization after application launch.
     
     [self setupStore];
+    
+    [[MTJSocketStore sharedStore] connectUser:[[MTJLayerKeysHelper new] userID] completion:^(BOOL success, NSError *error) {
+        
+        assert(success == YES);
+    }];
 
+    
     return YES;
 }
 
 - (void)setupStore {
     MTJLayerClient *client = [MTJLayerClient clientWithAppID:[[MTJLayerKeysHelper sharedInstance] appID]];
+    MTJLayerSocketClient *socketClient = [MTJLayerSocketClient client];
+    
     [[MTJSocketStore sharedStore] setClient:client];
+    [[MTJSocketStore sharedStore] setSocketClient:socketClient];
 }
 
 
