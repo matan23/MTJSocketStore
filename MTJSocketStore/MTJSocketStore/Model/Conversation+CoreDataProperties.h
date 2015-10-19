@@ -11,6 +11,8 @@
 
 #import "Conversation.h"
 
+@class Message;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Conversation (CoreDataProperties)
@@ -19,22 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *objId;
 @property (nullable, nonatomic, retain) NSString *url;
 @property (nullable, nonatomic, retain) id participants;
-@property (nullable, nonatomic, retain) NSOrderedSet<NSManagedObject *> *messages;
+@property (nullable, nonatomic, retain) NSSet<Message *> *messages;
 
 @end
 
 @interface Conversation (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(NSManagedObject *)value inMessagesAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromMessagesAtIndex:(NSUInteger)idx;
-- (void)insertMessages:(NSArray<NSManagedObject *> *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeMessagesAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInMessagesAtIndex:(NSUInteger)idx withObject:(NSManagedObject *)value;
-- (void)replaceMessagesAtIndexes:(NSIndexSet *)indexes withMessages:(NSArray<NSManagedObject *> *)values;
-- (void)addMessagesObject:(NSManagedObject *)value;
-- (void)removeMessagesObject:(NSManagedObject *)value;
-- (void)addMessages:(NSOrderedSet<NSManagedObject *> *)values;
-- (void)removeMessages:(NSOrderedSet<NSManagedObject *> *)values;
+- (void)addMessagesObject:(Message *)value;
+- (void)removeMessagesObject:(Message *)value;
+- (void)addMessages:(NSSet<Message *> *)values;
+- (void)removeMessages:(NSSet<Message *> *)values;
 
 @end
 

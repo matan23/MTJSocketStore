@@ -17,7 +17,7 @@
 @dynamic url;
 @dynamic receiptsUrl;
 @dynamic sentAt;
-@dynamic conversation;
 @dynamic messageText;
+@dynamic conversation;
 
 @end

@@ -36,7 +36,7 @@
 
 - (void)loadFromDictionary:(NSDictionary *)dictionary
 {
-    self.objId = dictionary[@"id"];
+    self.objId = dictionary[[Conversation identifierString]];
     self.url = dictionary[@"url"];
     self.participants = dictionary[@"participants"];
     
@@ -96,6 +96,10 @@
     return @"createdAt";
 }
 
+- (void)addCollection:(NSSet<NSManagedObject *> *)values {
+    [self addMessages:values];
+}
+
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext*)context
 {
     return [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
@@ -103,11 +107,22 @@
 
 //name of the field to identify the object in core data
 + (NSString *)identifierString {
-    return @"objId";
+    return @"id";
 }
 
-+ (NSString *)endpointURL {
+- (NSString *)endpointURL {
+    NSString *cleanConvObjID = [self.objId stringByReplacingOccurrencesOfString:@"layer:///conversations/" withString:@""];
+    return [NSString stringWithFormat:@"conversations/%@", cleanConvObjID];
+}
+
++ (NSString *)collectionEndpointURL {
     return @"conversations";
+}
+
+- (NSString *)collectionWithRelationshipEndpointURL {
+    NSString *cleanConvObjID = [self.objId
+                                stringByReplacingOccurrencesOfString:@"layer:///conversations/" withString:@""];
+    return [NSString stringWithFormat:@"conversations/%@/messages", cleanConvObjID];
 }
 
 

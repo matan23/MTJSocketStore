@@ -13,10 +13,10 @@
 
 - (void)loadFromDictionary:(NSDictionary *)dictionary
 {
-    self.objId = dictionary[@"id"];
+    self.objId = dictionary[[Message identifierString]];
     self.url = dictionary[@"url"];
     self.receiptsUrl = dictionary[@"receipts_url"];
-    self.sentAt = dictionary[@"sent_at"];
+    self.messageText = [dictionary[@"parts"] firstObject][@"body"];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
@@ -84,8 +84,14 @@
 }
 
 + (NSString *)sortKey {
-    return @"createdAt";
+    return @"sentAt";
 }
+
+- (void)addCollection:(NSSet<NSManagedObject *> *)values {
+//    nothing here yet
+    abort();
+}
+
 
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext*)context
 {
@@ -94,12 +100,26 @@
 
 //name of the field to identify the object in core data
 + (NSString *)identifierString {
-    return @"objId";
+    return @"id";
 }
 
-+ (NSString *)endpointURL {
+- (NSString *)endpointURL {
     return @"messages";
 }
+
++ (NSString *)collectionEndpointURL {
+//    messages are associated with a conversation
+    abort();
+    return @"";
+}
+
+- (NSString *)collectionWithRelationshipEndpointURL {
+    //    nothing yet
+    abort();
+    return @"";
+    
+}
+
 
 
 - (NSString *)description {
