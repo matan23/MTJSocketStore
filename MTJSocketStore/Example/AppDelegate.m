@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
+
+#import "MTJLayerKeysHelper.h"
+
 #import "MTJSocketStore.h"
 #import "MTJLayerClient.h"
 #import "MTJLayerSocketClient.h"
-#import "MTJLayerKeysHelper.h"
 
 @interface AppDelegate ()
 
@@ -24,12 +26,6 @@
     
     [self setupStore];
     
-    [[MTJSocketStore sharedStore] connectUser:[[MTJLayerKeysHelper new] userID] completion:^(BOOL success, NSError *error) {
-        
-        assert(success == YES);
-    }];
-
-    
     return YES;
 }
 
@@ -41,6 +37,11 @@
     [[MTJSocketStore sharedStore] setSocketClient:socketClient];
 }
 
+
++ (UIViewController *)instantiateViewControllerWithIdentifier:(NSString *)identifier {
+    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+    return viewController;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
