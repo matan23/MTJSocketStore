@@ -18,8 +18,8 @@ An example App is provided for usage of the store.
 
 ## RoadMap
 Long term goal is to make it a framework so that you can just use the facade SocketStore object and let you provide only:
-- RESTClient a tailored for your server's requirements
-- SocketClient a tailored for your server's requirements
+- a RESTClient tailored for your server's requirements
+- a SocketClient tailored for your server's requirements
 - Entities
 
 ## Current state of the Architecture
