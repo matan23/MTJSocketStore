@@ -4,7 +4,7 @@
 SocketStore goal is to provide a template architecture for networked application, it provides a facade that rely on several dependencies that can be injected to the store. For now I have included concrete implementations of the clients that use https://layer.com. see #Architecture
 
 ## Work In Progress, TODOs:
-- Reachability
+- **Reachability**, /!\ current store crashes (yes.) and do not work when connection is down /!\
 - Retries
 - OperationQueues for retries
 - Provide simpler APIs for creation of entities
