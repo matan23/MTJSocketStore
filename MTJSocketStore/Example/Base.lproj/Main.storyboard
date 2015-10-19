@@ -17,9 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xq0-0m-meu">
-                                <rect key="frame" x="0.0" y="28" width="600" height="218"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xq0-0m-meu">
+                                <rect key="frame" x="0.0" y="28" width="600" height="237"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="Ghm-SI-Gha"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="anu-gF-dgR">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -34,14 +37,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="nCJ-fU-yAS"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0S-jf-0ii">
-                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0S-jf-0ii">
+                                <rect key="frame" x="0.0" y="266" width="600" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QXZ-VU-GMb"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xq0-0m-meu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9BC-Hx-u3b"/>
+                            <constraint firstItem="xq0-0m-meu" firstAttribute="leading" secondItem="N0S-jf-0ii" secondAttribute="leading" id="IOF-pb-ApP"/>
+                            <constraint firstAttribute="trailing" secondItem="xq0-0m-meu" secondAttribute="trailing" id="bC4-Eg-lXO"/>
+                            <constraint firstItem="xq0-0m-meu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dKL-2x-jG2"/>
+                            <constraint firstItem="N0S-jf-0ii" firstAttribute="top" secondItem="xq0-0m-meu" secondAttribute="bottom" constant="1" id="iy9-S0-CMT"/>
+                            <constraint firstItem="xq0-0m-meu" firstAttribute="trailing" secondItem="N0S-jf-0ii" secondAttribute="trailing" id="z5K-e4-lkx"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="xq0-0m-meu" id="RIO-kE-XDb"/>

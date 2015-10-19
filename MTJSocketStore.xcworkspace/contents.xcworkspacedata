@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MTJSocketStore/MTJSocketStore/Model/Message+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:MTJSocketStore/MTJSocketStore/Model/Message+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:MTJSocketStore/MTJSocketStore/Model/Message.h">
+   </FileRef>
+   <FileRef
+      location = "group:MTJSocketStore/MTJSocketStore/Model/Message.m">
+   </FileRef>
+   <FileRef
       location = "group:MTJSocketStore/MTJSocketStore/Model/Conversation+CoreDataProperties.h">
    </FileRef>
    <FileRef

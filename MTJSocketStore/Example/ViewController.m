@@ -12,6 +12,7 @@
 #import "MTJSyncedTableViewDataSource.h"
 
 #import "Conversation.h"
+#import "PersistentStack.h"
 
 @interface ViewController () <MTJSyncedTableViewDataSourceDelegate> {
     MTJSyncedTableViewDataSource *_dataSource;
@@ -47,10 +48,25 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - TextFieldDelegata
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self sendMessage:textField.text];
+    textField.text = @"";
+    return NO;
 }
+
+- (void)sendMessage:(NSString *)message {
+    Conversation *conv = [Conversation findOrCreateEntity:@"bla" inContext:[PersistentStack sharedManager].backgroundManagedObjectContext];
+    conv.participants = [NSArray arrayWithObjects:@"WpXM3IIDzc", @"zyDQkU9pQD", nil];
+    
+    [[MTJSocketStore sharedStore] syncedInsertEntityOfType:conv];
+}
+
+
+#pragma mark - MTJSyncedTableViewDataSourceDelegate
+
+
 
 - (void)configureCell:(UITableViewCell *)cell withObject:(id)object {
     Conversation *conv = object;
