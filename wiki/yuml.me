@@ -1,0 +1,12 @@
+// Cool Class Diagram
+
+[ViewController{bg:turquoise}]-Calls the DataStore APIs>[SocketStore]
+[ViewController]<receives events through delegation-dataSource is linked to>[MTJSyncedTableViewDataSource]
+[SocketStore|-connectUser:;-syncCollectionOfType:;-syncCollectionOfType:BelongingToType:;-syncedInsertEntity;-entityWithId:ofType;{bg:tomato}]
+[SyncedEntityProtocol|-APIs for Network representation and resources{bg:orange}]<Provides Model Objects- [SocketStore]
+[SocketStore]++-1>[MTJRESTClientProtocol], [SocketStore]++-1>[MTJSocketClientProtocol]
+[MTJRESTClientProtocol{bg:orange}]
+[note: The concrete clients provides CRUD Method for Streamed/REST APIs {bg:cornsilk}]
+[MTJSocketClientProtocol{bg:orange}]
+[note: SocketStore provides a dataSource for tableView which is synced with the store {bg:cornsilk}]
+[MTJSyncedTableViewDataSource{bg:green}]
