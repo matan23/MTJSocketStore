@@ -14,7 +14,7 @@ The facade object rely on several dependencies that can be injected to it. For n
 - More Tests!
 
 ## How to Use it?
-An example App is provided for usage of the store.
+An example App is provided for usage of the store. However you need a layerAppID for the example app: you can get one at https://developer.layer.com
 
 ## RoadMap
 Long term goal is to make it a framework so that you can just use the facade SocketStore object and let you provide only:
