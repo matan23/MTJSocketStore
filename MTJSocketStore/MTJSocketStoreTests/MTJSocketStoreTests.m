@@ -15,6 +15,8 @@
 
 #import "Conversation.h"
 
+#import "PersistentStack.h"
+
 @interface MTJSocketStoreTests : XCTestCase {
     MTJLayerKeysHelper *_testHelper;
     
@@ -78,6 +80,34 @@
 
         }];
          
+    }];
+    
+    [self asyncWait];
+}
+
+- (void)testSyncCollectionOfTypeWithParentShouldSucceed {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"networkCallExpectation"];
+    
+    [_mockClient stopMocking];
+    [_store setClient:[MTJLayerClient clientWithAppID:[_testHelper appID]]];
+    [_store connectUser:[_testHelper userID] completion:^(BOOL success, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertTrue(success);
+//        convID 9df275fa-c306-4316-acd3-a8f49500dd4c
+        
+        Conversation *conv = [Conversation findOrCreateEntity:@"layer:///conversations/9df275fa-c306-4316-acd3-a8f49500dd4c" inContext:[PersistentStack sharedManager].backgroundManagedObjectContext];
+
+        id<MTJSyncedEntity> message = (id<MTJSyncedEntity>)NSClassFromString(@"Message");
+        assert([message conformsToProtocol:@protocol(MTJSyncedEntity)]);
+        
+        
+        [_store syncCollectionOfType:message belongingToType:conv completion:^(NSArray *collection, NSError *error) {
+           
+            XCTAssertNil(error);
+            XCTAssertNotNil(collection);
+            
+            [expectation fulfill];
+        }];
     }];
     
     [self asyncWait];

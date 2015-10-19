@@ -5,7 +5,7 @@
         <attribute name="objId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="participants" optional="YES" attributeType="Transformable" valueTransformerName="TransformableParticipantsArray" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Message" inverseName="conversation" inverseEntity="Message" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="conversation" inverseEntity="Message" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES">
         <attribute name="messageText" optional="YES" attributeType="String" syncable="YES"/>

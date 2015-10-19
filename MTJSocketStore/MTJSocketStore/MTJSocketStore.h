@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSManagedObject;
 @class NSManagedObjectContext;
 
 // Model object that can be persisted and serialized/deserialized
@@ -16,6 +17,7 @@
 //name of the field in the core data model to identify the object
 + (NSString *)identifierString;
 + (id<MTJSyncedEntity>)findOrCreateEntity:(NSString *)identifier inContext:(NSManagedObjectContext *)context;
+- (void)addCollection:(NSSet<NSManagedObject *> *)values;
 
 //serialize/deserializing
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
@@ -25,7 +27,9 @@
 + (NSString *)sortKey;
 
 //REST url for the resource: ex: for https://mywebserver.com/conversations the value would be 'conversations'
-+ (NSString *)endpointURL;
+- (NSString *)endpointURL;
++ (NSString *)collectionEndpointURL;
+- (NSString *)collectionWithRelationshipEndpointURL;
 
 @end
 
@@ -74,6 +78,10 @@
 + (instancetype)sharedStore;
 
 - (void)connectUser:(NSString *)userID completion:(void(^)(BOOL success, NSError *error))completion;
+
+- (void)syncCollectionOfType:(id<MTJSyncedEntity>)collectionType
+             belongingToType:(id<MTJSyncedEntity>)parentType
+                  completion:(void(^)(NSArray *collection, NSError *error))completion;
 
 - (void)syncCollectionOfType:(id<MTJSyncedEntity>)type
                   completion:(void(^)(NSArray *collection, NSError *error))completion;

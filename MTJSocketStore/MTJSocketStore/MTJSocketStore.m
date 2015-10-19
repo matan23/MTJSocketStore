@@ -61,9 +61,58 @@
     [_socketClient sendData:[type serializedCreateRequestDictionary]];
 }
 
+- (void)syncCollectionOfType:(id<MTJSyncedEntity>)collectionType
+             belongingToType:(id<MTJSyncedEntity>)parentType
+                  completion:(void(^)(NSArray *collection, NSError *error))completion {
+    [_client GETCollectionAtEndpoint:[parentType collectionWithRelationshipEndpointURL] completion:^(NSArray *collection, NSError *error) {
+        if (!error) {
+            [self importCollectionOfType:collectionType belongingToType:parentType fromJSON:collection completion:completion];
+        } else {
+            completion([NSArray array], error);
+        }
+    }];
+}
+
+- (void)importCollectionOfType:(id<MTJSyncedEntity>)type
+               belongingToType:(id<MTJSyncedEntity>)parentType
+                      fromJSON:(NSArray *)collection
+                    completion:(void(^)(NSArray *collection, NSError *error))completion {
+    assert(_backGroundContext);
+    assert([type conformsToProtocol:@protocol(MTJSyncedEntity)]);
+    
+    [_backGroundContext performBlock:^{
+        assert(![NSThread isMainThread]);
+        NSMutableArray *ret = [NSMutableArray new];
+        NSMutableSet *mutableSet = [NSMutableSet new];
+        
+        for (NSDictionary *dictionary in collection) {
+            NSString *identifier = dictionary[[type identifierString]];
+            
+            assert(identifier);
+            id<MTJSyncedEntity> entity = [type findOrCreateEntity:identifier inContext:_backGroundContext];
+            [entity loadFromDictionary:dictionary];
+            [mutableSet addObject:entity];
+        }
+        [parentType addCollection:[mutableSet copy]];
+        
+        NSError *ctxError = nil;
+        [_backGroundContext save:&ctxError];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!ctxError) {
+                completion(ret, nil);
+            } else {
+                NSLog(@"Error: %@", ctxError.localizedDescription);
+                completion([NSArray array], ctxError);
+            }
+        });
+    }];
+
+}
+
 - (void)syncCollectionOfType:(id<MTJSyncedEntity>)type
                   completion:(void(^)(NSArray *collection, NSError *error))completion {
-    [_client GETCollectionAtEndpoint:[type endpointURL] completion:^(NSArray *collection, NSError *error) {
+    [_client GETCollectionAtEndpoint:[type collectionEndpointURL] completion:^(NSArray *collection, NSError *error) {
         if (!error) {
             [self importCollectionOfType:type fromJSON:collection completion:completion];
         } else {
