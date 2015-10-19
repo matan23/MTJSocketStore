@@ -12,7 +12,11 @@
 
 #import "MTJSyncedTableViewDataSource.h"
 
-@interface MTJSocketStore() {
+//these two imports should not be here as models are generic once 'entityCreated:' is completely done we can remove these imports
+#import "Conversation.h"
+#import "Message.h"
+
+@interface MTJSocketStore() <MTJSocketClientDelegate> {
     NSManagedObjectContext *_backGroundContext;
 }
 @end
@@ -49,6 +53,7 @@
     
             NSAssert(_socketClient, @"client not set");
             [_socketClient connectToSession:_client.sessionToken];
+            _socketClient.delegate = self;
             completion(YES, nil);
         } else {
             
@@ -57,11 +62,7 @@
     }];
 }
 
-- (void)syncedInsertEntityOfType:(id<MTJSyncedEntity>)type {
-    [_socketClient sendData:[type serializedCreateRequestDictionary]];
-}
-
-- (void)syncCollectionOfType:(id<MTJSyncedEntity>)collectionType
+- (void)syncCollectionOfType:(Class<MTJSyncedEntity>)collectionType
              belongingToType:(id<MTJSyncedEntity>)parentType
                   completion:(void(^)(NSArray *collection, NSError *error))completion {
     [_client GETCollectionAtEndpoint:[parentType collectionWithRelationshipEndpointURL] completion:^(NSArray *collection, NSError *error) {
@@ -73,12 +74,11 @@
     }];
 }
 
-- (void)importCollectionOfType:(id<MTJSyncedEntity>)type
+- (void)importCollectionOfType:(Class<MTJSyncedEntity>)type
                belongingToType:(id<MTJSyncedEntity>)parentType
                       fromJSON:(NSArray *)collection
                     completion:(void(^)(NSArray *collection, NSError *error))completion {
     assert(_backGroundContext);
-    assert([type conformsToProtocol:@protocol(MTJSyncedEntity)]);
     
     [_backGroundContext performBlock:^{
         assert(![NSThread isMainThread]);
@@ -154,7 +154,16 @@
     }];
 }
 
-- (MTJSyncedTableViewDataSource *)tableViewDataSourceForType:(id<MTJSyncedEntity>)type {
+- (void)syncedInsertEntity:(id<MTJSyncedEntity>)entity {
+    [_socketClient sendData:[entity serializedCreateRequestDictionary]];
+}
+
+- (id<MTJSyncedEntity>)entityWithId:(NSString *)identifier ofType:(Class<MTJSyncedEntity>)type {
+    id<MTJSyncedEntity> entity= [type findOrCreateEntity:identifier inContext:_backGroundContext];
+    return entity;
+}
+
+- (MTJSyncedTableViewDataSource *)tableViewDataSourceForType:(Class<MTJSyncedEntity>)type {
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:[type entityName]];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:[type sortKey] ascending:YES]];
     
@@ -167,5 +176,49 @@
     MTJSyncedTableViewDataSource *FRCDatasource = [[MTJSyncedTableViewDataSource alloc] initWithFRC:FRC];
     return FRCDatasource;
 }
+
+#pragma mark - MTJSocketClientDelegate
+- (void)socketDidOpen {
+    
+}
+
+- (void)socketDidFailWithError:(NSError *)error {
+    
+}
+
+- (void)socketDidCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    
+}
+
+//hardcoded type for now
+- (void)entityCreated:(NSDictionary *)data {
+//    handle only message for now
+
+    
+    [_backGroundContext performBlock:^{
+        assert(![NSThread isMainThread]);
+        Message *message = [Message findOrCreateEntity:data[[Message identifierString]] inContext:_backGroundContext];
+        [message loadFromDictionary:data];
+        
+        Conversation *conversation = [Conversation findOrCreateEntity:data[@"conversation"][@"id"] inContext:_backGroundContext];
+//        [conversation addMessagesObject:message];
+        message.conversation = conversation;
+
+        
+        NSError *ctxError = nil;
+        [_backGroundContext save:&ctxError];
+        if (ctxError) NSLog(@"error creation entity from socket response: %@", ctxError);
+    }];
+
+
+}
+
+- (void)didReceiveData:(NSDictionary *)data {
+    NSLog(@"%@", data);
+//    id<MTJSyncedEntity> entity = [type findOrCreateEntity:identifier inContext:_backGroundContext];
+//    [entity loadFromDictionary:dictionary];
+//    [ret addObject:entity];
+}
+
 
 @end

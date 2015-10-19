@@ -14,10 +14,13 @@
 		830C2E9F1BD44F5400B2AC5E /* MTJLayerSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2E9E1BD44F5400B2AC5E /* MTJLayerSocketClient.m */; settings = {ASSET_TAGS = (); }; };
 		830C2EA41BD4746300B2AC5E /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2EA11BD4746300B2AC5E /* Message+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		830C2EA51BD4746300B2AC5E /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2EA31BD4746300B2AC5E /* Message.m */; settings = {ASSET_TAGS = (); }; };
+		830C2EA91BD4993500B2AC5E /* ConversationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830C2EA81BD4993500B2AC5E /* ConversationsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		839090211BD34BD50086924C /* MTJSocketStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8390901F1BD34BD50086924C /* MTJSocketStore.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		8390902C1BD34C760086924C /* Conversation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 839090291BD34C760086924C /* Conversation+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		8390902D1BD34C760086924C /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390902B1BD34C760086924C /* Conversation.m */; settings = {ASSET_TAGS = (); }; };
 		839090301BD357960086924C /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390902F1BD357960086924C /* PersistentStack.m */; settings = {ASSET_TAGS = (); }; };
+		83B6522F1BD4A116007C18E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B6522E1BD4A116007C18E4 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		83B652351BD4B214007C18E4 /* MessageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B652341BD4B214007C18E4 /* MessageContainer.m */; settings = {ASSET_TAGS = (); }; };
 		83EF00011BD2DFA600E97275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00001BD2DFA600E97275 /* Foundation.framework */; };
 		83EF00031BD2DFAB00E97275 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00021BD2DFAB00E97275 /* Security.framework */; };
 		83EF00051BD2DFC300E97275 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EF00041BD2DFC300E97275 /* libicucore.A.dylib */; };
@@ -27,7 +30,7 @@
 		83EF00161BD2F58B00E97275 /* layer_secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EF00151BD2F58B00E97275 /* layer_secrets.plist */; };
 		83EFFFD71BD2DBE900E97275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFD61BD2DBE900E97275 /* main.m */; };
 		83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFD91BD2DBE900E97275 /* AppDelegate.m */; };
-		83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFDC1BD2DBE900E97275 /* ViewController.m */; };
+		83EFFFDD1BD2DBE900E97275 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EFFFDC1BD2DBE900E97275 /* MessagesViewController.m */; };
 		83EFFFE01BD2DBE900E97275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFFFDE1BD2DBE900E97275 /* Main.storyboard */; };
 		83EFFFE21BD2DBE900E97275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EFFFE11BD2DBE900E97275 /* Assets.xcassets */; };
 		83EFFFE51BD2DBE900E97275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFFFE31BD2DBE900E97275 /* LaunchScreen.storyboard */; };
@@ -59,6 +62,8 @@
 		830C2EA11BD4746300B2AC5E /* Message+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataProperties.m"; sourceTree = "<group>"; };
 		830C2EA21BD4746300B2AC5E /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		830C2EA31BD4746300B2AC5E /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		830C2EA71BD4993500B2AC5E /* ConversationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationsTableViewController.h; path = MTJSocketStore/Example/ConversationsTableViewController.h; sourceTree = "<group>"; };
+		830C2EA81BD4993500B2AC5E /* ConversationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConversationsTableViewController.m; path = MTJSocketStore/Example/ConversationsTableViewController.m; sourceTree = "<group>"; };
 		839090201BD34BD50086924C /* MTJSocketStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTJSocketStore.xcdatamodel; sourceTree = "<group>"; };
 		839090281BD34C760086924C /* Conversation+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Conversation+CoreDataProperties.h"; sourceTree = "<group>"; };
 		839090291BD34C760086924C /* Conversation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Conversation+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -66,6 +71,10 @@
 		8390902B1BD34C760086924C /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		8390902E1BD357960086924C /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
 		8390902F1BD357960086924C /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
+		83B6522D1BD4A116007C18E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = MTJSocketStore/Example/LoginViewController.h; sourceTree = "<group>"; };
+		83B6522E1BD4A116007C18E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = MTJSocketStore/Example/LoginViewController.m; sourceTree = "<group>"; };
+		83B652331BD4B214007C18E4 /* MessageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageContainer.h; path = MTJSocketStore/Example/MessageContainer.h; sourceTree = "<group>"; };
+		83B652341BD4B214007C18E4 /* MessageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageContainer.m; path = MTJSocketStore/Example/MessageContainer.m; sourceTree = "<group>"; };
 		83EF00001BD2DFA600E97275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83EF00021BD2DFAB00E97275 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		83EF00041BD2DFC300E97275 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
@@ -81,8 +90,8 @@
 		83EFFFD61BD2DBE900E97275 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Example/main.m; sourceTree = "<group>"; };
 		83EFFFD81BD2DBE900E97275 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MTJSocketStore/Example/AppDelegate.h; sourceTree = "<group>"; };
 		83EFFFD91BD2DBE900E97275 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MTJSocketStore/Example/AppDelegate.m; sourceTree = "<group>"; };
-		83EFFFDB1BD2DBE900E97275 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = MTJSocketStore/Example/ViewController.h; sourceTree = "<group>"; };
-		83EFFFDC1BD2DBE900E97275 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = MTJSocketStore/Example/ViewController.m; sourceTree = "<group>"; };
+		83EFFFDB1BD2DBE900E97275 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = MTJSocketStore/Example/MessagesViewController.h; sourceTree = "<group>"; };
+		83EFFFDC1BD2DBE900E97275 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = MTJSocketStore/Example/MessagesViewController.m; sourceTree = "<group>"; };
 		83EFFFDF1BD2DBE900E97275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83EFFFE11BD2DBE900E97275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Example/Assets.xcassets; sourceTree = "<group>"; };
 		83EFFFE41BD2DBE900E97275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -154,8 +163,14 @@
 				83EFFFD51BD2DBE900E97275 /* Supporting Files */,
 				83EFFFD81BD2DBE900E97275 /* AppDelegate.h */,
 				83EFFFD91BD2DBE900E97275 /* AppDelegate.m */,
-				83EFFFDB1BD2DBE900E97275 /* ViewController.h */,
-				83EFFFDC1BD2DBE900E97275 /* ViewController.m */,
+				83EFFFDB1BD2DBE900E97275 /* MessagesViewController.h */,
+				83EFFFDC1BD2DBE900E97275 /* MessagesViewController.m */,
+				830C2EA71BD4993500B2AC5E /* ConversationsTableViewController.h */,
+				830C2EA81BD4993500B2AC5E /* ConversationsTableViewController.m */,
+				83B6522D1BD4A116007C18E4 /* LoginViewController.h */,
+				83B6522E1BD4A116007C18E4 /* LoginViewController.m */,
+				83B652331BD4B214007C18E4 /* MessageContainer.h */,
+				83B652341BD4B214007C18E4 /* MessageContainer.m */,
 			);
 			name = ExampleApp;
 			sourceTree = "<group>";
@@ -408,15 +423,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				839090301BD357960086924C /* PersistentStack.m in Sources */,
+				83B652351BD4B214007C18E4 /* MessageContainer.m in Sources */,
 				83EF000F1BD2E90C00E97275 /* MTJLayerClient.m in Sources */,
 				830C2E931BD4063500B2AC5E /* MTJSyncedTableViewDataSource.m in Sources */,
 				830C2EA41BD4746300B2AC5E /* Message+CoreDataProperties.m in Sources */,
 				83EFFFFD1BD2DF3800E97275 /* SRWebSocket.m in Sources */,
-				83EFFFDD1BD2DBE900E97275 /* ViewController.m in Sources */,
+				83EFFFDD1BD2DBE900E97275 /* MessagesViewController.m in Sources */,
 				83EFFFDA1BD2DBE900E97275 /* AppDelegate.m in Sources */,
+				83B6522F1BD4A116007C18E4 /* LoginViewController.m in Sources */,
 				830C2EA51BD4746300B2AC5E /* Message.m in Sources */,
 				83EFFFD71BD2DBE900E97275 /* main.m in Sources */,
 				83EF000C1BD2E3F100E97275 /* MTJSocketStore.m in Sources */,
+				830C2EA91BD4993500B2AC5E /* ConversationsTableViewController.m in Sources */,
 				8390902D1BD34C760086924C /* Conversation.m in Sources */,
 				830C2E941BD417B000B2AC5E /* MTJLayerKeysHelper.m in Sources */,
 				830C2E9F1BD44F5400B2AC5E /* MTJLayerSocketClient.m in Sources */,

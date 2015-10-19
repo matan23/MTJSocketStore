@@ -101,7 +101,16 @@
 
 - (NSDictionary *)parseChange:(NSDictionary *)dictionary {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-    return dictionary;
+    
+        //        handle only message for now
+    if ([dictionary[@"body"][@"operation"] isEqualToString:@"create"]) {
+        [_delegate entityCreated:dictionary[@"body"][@"data"]];
+        
+        //            this line can be removed in the future but leave it here for debugging for now
+        return dictionary[@"body"][@"data"];
+    }
+    
+    return dictionary[@"body"][@"data"];
 }
 
 - (NSDictionary *)parseRequest:(NSDictionary *)dictionary {
@@ -110,11 +119,24 @@
     NSNumber *success = dictionary[@"body"][@"success"];
     if ([success integerValue] == 1) {
         NSLog(@"request succeeded!");
+        
+//        handle only message for now
+        if ([dictionary[@"body"][@"method"] isEqualToString:@"Message.create"]) {
+            [_delegate entityCreated:dictionary[@"body"][@"data"]];
+            
+//            this line can be removed in the future but leave it here for debugging for now
+            return dictionary[@"body"][@"data"];
+        }
+        
         return dictionary[@"body"][@"data"];
     } else {
         NSLog(@"socket received failed request from layer");
         return nil;
     }
+}
+
+//should make that generic
+- (void)handleMessageCreation:(NSDictionary *)message {
     
 }
 

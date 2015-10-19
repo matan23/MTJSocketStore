@@ -53,6 +53,8 @@
 - (void)socketDidFailWithError:(NSError *)error;
 - (void)socketDidCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 - (void)didReceiveData:(NSDictionary *)data;
+
+- (void)entityCreated:(NSDictionary *)data;
 @end
 
 @protocol MTJSocketClientProtocol <NSObject>
@@ -79,16 +81,18 @@
 
 - (void)connectUser:(NSString *)userID completion:(void(^)(BOOL success, NSError *error))completion;
 
-- (void)syncCollectionOfType:(id<MTJSyncedEntity>)collectionType
+- (void)syncCollectionOfType:(Class<MTJSyncedEntity>)collectionType
              belongingToType:(id<MTJSyncedEntity>)parentType
                   completion:(void(^)(NSArray *collection, NSError *error))completion;
 
 - (void)syncCollectionOfType:(id<MTJSyncedEntity>)type
                   completion:(void(^)(NSArray *collection, NSError *error))completion;
 
-- (void)syncedInsertEntityOfType:(id<MTJSyncedEntity>)type;
+- (void)syncedInsertEntity:(id<MTJSyncedEntity>)entity;
 
-- (MTJSyncedTableViewDataSource *)tableViewDataSourceForType:(id<MTJSyncedEntity>)type;
+- (id<MTJSyncedEntity>)entityWithId:(NSString *)identifier ofType:(Class<MTJSyncedEntity>)type;
+
+- (MTJSyncedTableViewDataSource *)tableViewDataSourceForType:(Class<MTJSyncedEntity>)type;
 
 @end
 

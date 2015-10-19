@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MessagesViewController : UIViewController
 
+@property (nonatomic, copy) NSString *conversationID;
 
 @end
 

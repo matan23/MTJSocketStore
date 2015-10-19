@@ -48,6 +48,10 @@
     return error;
 }
 
+- (id)itemAtIndexPath:(NSIndexPath *)path {
+    return [self.fetchedResultsController objectAtIndexPath:path];
+}
+
 #pragma mark - TableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
@@ -75,7 +79,10 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_delegate deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        if ([_delegate respondsToSelector:@selector(deleteObject:)]) {
+            [_delegate deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        }
     }
 }
 
@@ -87,7 +94,9 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController*)controller
 {
-    [self scrollToBottom];
+    if ([_delegate respondsToSelector:@selector(dataInserted)]) {
+        [_delegate dataInserted];
+    }
     [_tableView endUpdates];
 }
 
@@ -102,14 +111,6 @@
     } else {
         NSLog(@"NSFetchedResultController change type no implemented %ld", type);
 //        NSAssert(NO,@"");
-    }
-}
-
--(void)scrollToBottom{
-    if (_tableView.contentSize.height > _tableView.frame.size.height)
-    {
-        CGPoint offset = CGPointMake(0, _tableView.contentSize.height - _tableView.frame.size.height + 44);
-        [_tableView setContentOffset:offset animated:YES];
     }
 }
 @end

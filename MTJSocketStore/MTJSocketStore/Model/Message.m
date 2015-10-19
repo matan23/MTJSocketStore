@@ -45,7 +45,8 @@
 //    }
 //}
 - (NSDictionary *)serializedCreateRequestDictionary {
-    NSDictionary *data = @{@"parts":@{@"body":self.messageText}
+    NSDictionary *data = @{@"parts":@[@{@"body":self.messageText,
+                                        @"mime_type":@"text/plain"}]
                            };
     NSDictionary *body = @{ @"method": @"Message.create",
                             @"request_id": [NSString stringWithFormat:@"message.create.%@", [NSDate date]],
@@ -72,9 +73,9 @@
     if (result.lastObject) {
         return result.lastObject;
     } else {
-        Conversation *conv = [self insertNewObjectIntoContext:context];
-        conv.objId = objID;
-        return conv;
+        Message *msg = [self insertNewObjectIntoContext:context];
+        msg.objId = objID;
+        return msg;
     }
 }
 

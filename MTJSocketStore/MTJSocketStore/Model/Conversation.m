@@ -97,7 +97,7 @@
 }
 
 - (void)addCollection:(NSSet<NSManagedObject *> *)values {
-    [self addMessages:values];
+    [self addMessages:(NSSet<Message *> *)values];
 }
 
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext*)context
