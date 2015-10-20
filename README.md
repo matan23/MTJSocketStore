@@ -7,10 +7,11 @@ The facade object rely on several dependencies that can be injected to it. For n
 ## Work In Progress, TODOs:
 - **Error handling, no error handling right now as I have no implementations for retries atm**
 - **Reachability**, /!\ current store crashes (yes.) and do not work when connection is down /!\
+- Typhon for dependencies injection
+- NSOperation based architecture for dependent tasks
 - Retries
-- OperationQueues for retries
 - Provide simpler APIs for creation of entities
-- Move the network representation of entities out of NSManagedObject
+- Decouple network representation of entities out of NSManagedObject
 - More Tests!
 
 ## How to Use it?
