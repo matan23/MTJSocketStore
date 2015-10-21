@@ -10,6 +10,7 @@ The facade object rely on several dependencies that can be injected to it. For n
 - Typhon for dependency injection
 - NSOperation based architecture for dependent tasks
 - Retries
+- PersistentStack is not using its argument for store and model url
 - Provide simpler APIs for creation of entities
 - Decouple network representation of entities out of NSManagedObject
 - More Tests!
