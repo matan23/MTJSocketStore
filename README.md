@@ -14,6 +14,7 @@ The facade object rely on several dependencies that can be injected to it. For n
 - Provide simpler APIs for creation of entities
 - Decouple network representation of entities out of NSManagedObject
 - More Tests!
+- add generics and nullable for collections
 
 ## How to Use it?
 An example App is provided for usage of the store. However you need a layerAppID for the example app: you can get one at https://developer.layer.com (or ask me)
