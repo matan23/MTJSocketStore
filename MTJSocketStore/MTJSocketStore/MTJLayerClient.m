@@ -125,13 +125,18 @@ static NSString *const kBaseUrl = @"https://api.layer.com";
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         
         NSData *data = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
-        NSError *jsonParseError;
-        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParseError];
+        NSError *jsonParseError = nil;
         
-        if (!jsonParseError) {
-            NSNumber *code = response[@"code"];
-            if ([code integerValue] == 4)
-                NSLog(@"session token expired, should reconnect here");
+        if (data) {
+            NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParseError];
+            
+            if (!jsonParseError) {
+                NSNumber *code = response[@"code"];
+                if ([code integerValue] == 4)
+                    NSLog(@"session token expired, should reconnect here");
+            }
+        } else {
+            NSLog(@"unable to parse error");
         }
         completion(nil, error);
     }];
