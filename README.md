@@ -16,6 +16,8 @@ The facade object rely on several dependencies that can be injected to it. For n
 - More Tests!
 - add generics and nullable for collections
 - QoS
+- Profile and add autoreleasepools
+- CoreData merge policy + cases where a bg change from the sync server, deletes an object that is currently being edited in the UI
 
 ## How to Use it?
 An example App is provided for usage of the store. However you need a layerAppID for the example app: you can get one at https://developer.layer.com (or ask me)
