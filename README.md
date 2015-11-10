@@ -5,8 +5,8 @@ SocketStore goal is to provide a template (and later on a  framework) architectu
 The facade object rely on several dependencies that can be injected to it. For now I have included concrete implementations of the clients that talks to https://layer.com servers. See #Architecture for design of the store.
 
 ## Work In Progress, TODOs:
-- **Error handling, no error handling right now as I have no implementations for retries atm**
-- **Reachability**, /!\ current store crashes (yes.) and do not work when connection is down /!\
+- Error handling, no error handling right now as I have no implementations for retries atm
+- Reachability
 - Typhon for dependency injection
 - NSOperation based architecture for dependent tasks
 - Retries
