@@ -20,7 +20,8 @@ The facade object rely on several dependencies that can be injected to it. For n
 - CoreData merge policy + cases where a bg change from the sync server, deletes an object that is currently being edited in the UI
 
 ## How to Use it?
-An example App is provided for usage of the store. However you need a layerAppID for the example app: you can get one at https://developer.layer.com (or ask me)
+- An example App is provided for usage of the store. However you need a layerAppID for the example app: you can get one at https://developer.layer.com (or ask me)
+- See also [!Alt text](https://github.com/matan23/HenriPotier Rest Example")
 
 ## RoadMap
 Long term goal is to make it a framework so that you can just use the facade SocketStore object and let you provide only:
